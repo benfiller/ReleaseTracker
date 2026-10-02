@@ -2,7 +2,7 @@
 
 A personal Apple Music release tracker desktop app: track artists you choose and get notified of their new releases, with links that open straight in the Apple Music app.
 
-Just a small local Python server plus one HTML browser page; nothing to install beyond Python itself. Standard library only, no API keys, no subscriptions, no external services (aside from Apple's free iTunes Search API and, optionally, [Soundiiz](https://soundiiz.com) for playlist export).
+Just a small local Python server plus one HTML browser page; nothing to install beyond Python itself.
 
 ## Features
 
@@ -29,7 +29,8 @@ Just a small local Python server plus one HTML browser page; nothing to install 
 3. A local server starts at `http://127.0.0.1:8765/` and a browser tab opens automatically.
 4. The server runs as long as the tab stays open and shuts itself down a few seconds after you close the last open tab.
 
-`releases.db` (your data) and `backups/`, `image_cache/`, `tracker.log` are created automatically next to the script the first time you run it.
+- To pin a shortcut with a custom icon: right-click run.pyw → Create shortcut → drag it to your Start Menu or taskbar → right-click the shortcut → Properties → Change Icon → select icon.ico.
+- `releases.db` (your data) and `backups/`, `image_cache/`, `tracker.log` are created automatically next to the script the first time you run it.
 
 ## Files
 
@@ -38,6 +39,7 @@ Just a small local Python server plus one HTML browser page; nothing to install 
 | `releases.py` | Server side: SQLite database, iTunes API calls, refresh logic, the HTTP server. Standard library only. |
 | `index.html` | The whole interface: HTML, CSS, and JS in one file. |
 | `run.pyw` | Double-click launcher. |
+| `icon.ico` | Icon file for optional shortcut. |
 | `backups/` | Folder containing the 7 most recent `releases.db` backups, created automatically on first run. |
 | `image_cache/` | Folder containing tracked artist photos and release artwork, created automatically on first run. |
 | `tracker.log` | Debug logging, created automatically on first run. |
@@ -51,7 +53,6 @@ Just a small local Python server plus one HTML browser page; nothing to install 
 - Click on any artist card to show their Apple Music catalog; any release can be hidden with **Edit Catalog** or added to **Listen later**.
 
 ## Limitations
-
 
 - Apple's iTunes Search API caps a catalog lookup at 200 entries and doesn't support real pagination, so very large catalogs (200+ releases) are periodically re-checked to catch anything that fell outside the lookup window. The app flags an artist's catalog as possibly incomplete when this applies.
 
