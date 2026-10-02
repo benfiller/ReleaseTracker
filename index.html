@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Release Tracker</title>
+<link rel="icon" type="image/png" sizes="96x96" href="data:image/png;base64,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">
+<!-- Display font for the header. Loaded from Google Fonts; falls back to fonts already on Windows if offline. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Squada+One&family=Radio+Canada+Big:wght@400..600&family=Noto+Sans+JP:wght@400..600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f2f0ec; --panel: #ffffff; --text: #1c1c1a; --muted: #6b6b66;
+    --border: #dedbd4; --accent: #d44357; --accent-text: #ffffff; --accent-link: #d44357;
+    --star: #dba80f; --danger: #ca3a37; --later: #299c57; --underline: #d7d7cf;
+    --tag-bg: #e8e5e0;  /* pill background on artist/release cards; lighter than --border so the text has more contrast */
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1f1e1e; --panel: #2a2a2a; --text: #dcdcd7; --muted: #a2a29b;
+      --border: #424242; --accent: #d44357; --accent-text: #f5f5ef; --accent-link: #d44357;
+      --star: #fbd04a; --danger: #ce4442; --later: #3ac777; --underline: #4d4d49;
+      --tag-bg: #424242;  /* pill background on artist/release cards; unchanged from --border here */
+    }
+    /* dark mode only: the input darkens on focus (the panel color reads as "lit up" against the
+       page background at rest, so darkening toward --bg on focus is the clearer selected state
+       here -- in light mode --panel is already the lightest tone, so this doesn't apply there) */
+    input[type=text]:focus { background: var(--bg); }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 17px/1.45 'Radio Canada Big', 'Noto Sans JP', system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  .wrap { max-width: 1464px; margin: 0 auto; padding: 23px 18px 69px; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .logo { border-radius: 8px; flex: none; }
+  h1 { font-family: 'Squada One', Bahnschrift, Impact, 'Arial Narrow', sans-serif; font-size: 42px; font-weight: 400; letter-spacing: .06em; line-height: 1; margin: 0; }
+  h2 { font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 32px 0 12px; }
+  .status { color: var(--muted); font-size: 15px; }
+  button {
+    font: inherit; cursor: pointer; padding: 7px 14px; border-radius: 7px;
+    border: 1px solid var(--border); background: var(--panel); color: var(--text);
+  }
+  button:hover { border-color: var(--muted); }
+  button.primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); font-weight: 550; }
+  button.danger { color: var(--danger); }
+  button.danger:hover { border-color: var(--danger); background: color-mix(in srgb, var(--danger) 14%, var(--panel)); }
+  button:disabled { opacity: .5; cursor: default; }
+  nav { position: sticky; top: 0; z-index: 7; display: flex; gap: 7px; margin: 18px 0 5px; border-bottom: 1px solid var(--border); background: var(--bg); }
+  nav > button, nav .tabwrap { border: none; border-bottom: 3px solid transparent; border-radius: 0; background: none; padding: 9px 14px; }
+  nav > button.active, nav .tabwrap.active { border-bottom-color: var(--accent); font-weight: 600; }
+  .tabwrap { display: inline-flex; align-items: center; gap: 7px; padding-right: 9px; }
+  .tabwrap button { border: none; background: none; padding: 0; color: inherit; font: inherit; cursor: pointer; }
+  .tabwrap #catalogTabName { max-width: 230px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tabwrap .x { color: var(--muted); font-size: 20px; line-height: 1; padding: 0 6px 2px; border-radius: 5px; }
+  .tabwrap .x:hover { color: var(--text); background: var(--border); }
+  .cathead { position: sticky; top: var(--navh, 0px); z-index: 6; display: flex; align-items: center; gap: 16px; margin: 12px 0 0; padding: 9px 0 6px; background: var(--bg); }
+  .cathead .name { font-size: 23px; font-weight: 550; }
+  .cathead .thumb.big { transition: width .15s ease, height .15s ease; }
+  .cathead.compact .thumb.big { width: 50px; height: 50px; }   /* photo shrinks while the header is pinned over a scrolled list */
+  #catalogView { overflow-anchor: none; }
+  .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(343px, 1fr)); }
+  .card {
+    position: relative; display: flex; gap: 14px; padding: 12px; background: var(--panel);
+    border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 1px 2px rgba(28,28,26,.05);
+  }
+  .card img { width: 100px; height: 100px; border-radius: 7px; object-fit: cover; background: var(--border); flex: none; }
+  .card .info { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .title { font-weight: 550; word-break: break-all; }
+  .card .title { display: -webkit-box; -webkit-line-clamp: 1; line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+  .card.no-meta .title { -webkit-line-clamp: 2; line-clamp: 2; word-break: normal; overflow-wrap: break-word; }
+  .meta { color: var(--muted); font-size: 15px; }
+  .meta.clip { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 500; }
+  .meta.dim { opacity: .7; }
+  .actions { margin-top: auto; display: flex; gap: 12px; align-items: center; font-size: 15px; flex-wrap: wrap; }
+  .actions a { display: inline-flex; align-items: center; gap: 5px; color: var(--accent-link); text-decoration: none; font-weight: 500; }
+  .actions button { padding: 0; border: none; background: none; }
+  .hidebtn { color: var(--muted); margin-left: auto; margin-right: 3px; display: inline-flex; align-items: center; transition: opacity .12s, color .15s; }
+  .hidebtn svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .hidebtn:hover { color: var(--text); }
+  #feedGrid .hidebtn { opacity: 0; }
+  #feedGrid .card:hover .hidebtn, #feedGrid .card:focus-within .hidebtn { opacity: 1; }
+  @media (hover: none) { #feedGrid .hidebtn { opacity: 1; } }
+  .empty { color: var(--muted); padding: 28px 0; }
+  .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 14px; box-shadow: 0 1px 2px rgba(28,28,26,.05); }
+  .row { display: flex; gap: 9px; }
+  /* the search box and its results stay at the top of the window while the artist list scrolls under them */
+  .addbar { position: sticky; top: var(--navh, 0px); z-index: 6; display: flex; flex-direction: column; max-height: 80vh; padding: 12px 0 6px; background: var(--bg); }
+  .addbar h2 { flex: none; margin: 0 0 9px; }
+  #artistsView { padding-top: 0; overflow-anchor: none; }   /* scroll is kept by hand, see keepScroll() */
+  .addbar + h2 { margin-top: 14px; }   /* less than the usual 32px: the add-artist bar just above already reads as a section break */
+  .addbar .row { flex: none; }
+  /* matches the input's own radius, so clipping (below) follows the same curve as its visible outline */
+  .field { position: relative; flex: 1; min-width: 0; display: flex; border-radius: 7px; overflow: hidden; }
+  .field input[type=text] { width: 100%; padding-right: 41px; }
+  .field input[type=text]::placeholder { color: var(--muted); opacity: .5; }
+  /* a flush band along the bottom, spanning the full width. Full-width plus a square pseudo-element
+     would otherwise poke out past the input's rounded corners into the little gap the curve leaves at
+     each corner -- clipping .field to the same rounded shape (above) keeps it tucked inside the outline
+     instead, so only the flat middle run shows and the corners themselves stay cut off cleanly. */
+  .field::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: 0;
+    height: 2px; background: var(--underline); pointer-events: none; transition: background .12s;
+  }
+  .field:focus-within::after { background: var(--accent); }
+  .clearbtn { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); padding: 0 9px 2px; border: none; border-radius: 5px; background: none; color: var(--muted); font-size: 23px; line-height: 1.2; }
+  .clearbtn:hover { color: var(--text); background: var(--border); }
+  /* cards scrolling under the pinned bar fade out instead of being cut off */
+  .addbar::after, .cathead::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 17px; background: linear-gradient(to bottom, var(--bg) 0%, var(--bg) 30%, transparent 100%); pointer-events: none; }
+  .addbar .panel { min-height: 0; overflow-y: auto; }
+  /* the artist search stays pinned to the top of the window while the list scrolls under it */
+  #searchRow { position: sticky; top: var(--navh, 0px); z-index: 5; padding: 7px 0 3px; background: var(--bg); }
+  #searchRow::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 14px; background: linear-gradient(var(--bg), transparent); pointer-events: none; }
+  input[type=text] {
+    flex: 1; font: inherit; padding: 9px 12px; border-radius: 7px;
+    border: 1px solid var(--border); background: var(--panel); color: var(--text);
+    transition: background .12s;
+  }
+  /* the built-in focus ring reads as an unrelated blue box; a plain color shift (the
+     underline itself is drawn by .field::after above) fits the theme better */
+  input[type=text]:focus { outline: none; }
+  input[type=text]::placeholder { color: var(--muted); opacity: .7; }
+  .thumb { width: 64px; height: 64px; border-radius: 7px; background: var(--border); flex: none; overflow: hidden; }
+  .thumb.big { width: 88px; height: 88px; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .grow { flex: 1; min-width: 0; }
+  .recents { display: flex; flex-wrap: wrap; gap: 7px 21px; margin-top: 9px; }
+  .rel { display: inline-flex; align-items: center; gap: 8px; min-width: 0; max-width: 100%; }
+  .mini { width: 28px; height: 28px; border-radius: 5px; background: var(--border); flex: none; overflow: hidden; }
+  .mini img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .reltitle { font-size: 15px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 264px; }
+  .tag { display: inline-block; margin-left: 8px; padding: 1px 10px; border-radius: 999px; background: var(--tag-bg); color: var(--text); font-size: 14px; font-weight: 400; vertical-align: 1px; white-space: nowrap; }
+  .top { display: flex; gap: 16px; align-items: center; margin: 12px 0 16px; }
+  select { font: inherit; padding: 6px 9px; border-radius: 7px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
+  .filterbar { display: flex; justify-content: space-between; align-items: center; gap: 9px 18px; flex-wrap: wrap; margin-top: 22px; }
+  .filterbar .days { display: flex; align-items: stretch; }
+  .filterbar .right { display: flex; align-items: stretch; gap: 9px 12px; flex-wrap: wrap; }
+  .pickbtn { display: inline-flex; align-items: center; padding: 7px 10px; line-height: 0; color: var(--muted); }
+  .pickbtn svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .pickbtn:hover, .pickbtn[aria-expanded="true"] { color: var(--text); }
+  .exportrow { display: flex; align-items: center; gap: 9px 12px; flex-wrap: wrap; }
+  #exportPanel .note { margin: 12px 0 0; }
+  .btnlink { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border: 1px solid var(--border); border-radius: 7px; background: var(--panel); color: var(--text); text-decoration: none; }
+  .btnlink:hover { border-color: var(--muted); }
+  .cats { display: inline-flex; gap: 7px; flex-wrap: wrap; }
+  .cats button { border-radius: 999px; padding: 6px 16px; height: 39px; }
+  .cats button.active { background: var(--accent); border-color: var(--accent); color: var(--accent-text); font-weight: 550; }
+  /* the sort/period icons and Export playlist should be the same height as the pills next to
+     them; .cats button gets its own height (above) rather than joining this flex-centering rule,
+     since switching it to flex knocked its count badge (.n) out of its normal inline position. */
+  .filterbar .pickbtn, .filterbar #exportBtn {
+    height: 39px; display: inline-flex; align-items: center; justify-content: center;
+  }
+  .cats .n { opacity: .75; font-size: 14px; margin-left: 3px; }
+  #feedHeading { margin-top: 18px; }   /* less than the usual 32px, so it doesn't read as spaced further from the pills than they are from the nav */
+  .star { display: inline-flex; vertical-align: -2px; margin-right: 5px; color: var(--star); }
+  .star svg { width: 15px; height: 15px; fill: currentColor; stroke: none; }
+  .cand { display: flex; gap: 14px; align-items: center; padding: 12px 0; border-top: 1px solid var(--border); }
+  .cand:first-child { border-top: none; }
+  .btns { display: flex; gap: 9px; flex: none; }
+  .agrid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(346px, 1fr)); }
+  .agrid > .note { grid-column: 1 / -1; }
+  .acard { position: relative; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 1px 2px rgba(28,28,26,.05); }
+  .acard:hover, .acard:focus-within { border-color: var(--muted); }
+  .amain { display: flex; align-items: center; gap: 16px; width: 100%; padding: 14px 48px 14px 14px; text-align: left; border: none; border-radius: 12px; background: none; color: inherit; font: inherit; cursor: pointer; }
+  .amain:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .amain .thumb { width: 74px; height: 74px; }
+  .aname { font-weight: 500; overflow-wrap: anywhere; }
+  .amain:hover .aname { text-decoration: underline; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px 7px; margin-top: 6px; }
+  .amain .tag { margin: 0; }
+  .afav { position: absolute; top: 9px; right: 9px; padding: 6px; border: none; background: none; color: var(--muted); line-height: 0; opacity: 0; transition: opacity .12s, color .15s; border-radius: 7px; }
+  .afav svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linejoin: round; }
+  .afav.on { opacity: 1; color: var(--star); }
+  .afav.on svg { fill: currentColor; }
+  .afav:hover { color: var(--star); }
+  .acard:hover .afav, .acard:focus-within .afav { opacity: 1; }
+  @media (hover: none) { .afav { opacity: 1; } }
+  .aremove { position: absolute; bottom: 9px; right: 9px; padding: 6px; border: none; background: none; color: var(--muted); line-height: 0; opacity: 0; transition: opacity .12s; border-radius: 7px; }
+  .aremove svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .aremove:hover { color: var(--danger); }
+  .acard:hover .aremove, .acard:focus-within .aremove { opacity: 1; }
+  @media (hover: none) { .aremove { opacity: 1; } }
+  .note { color: var(--muted); font-size: 15px; }
+  .warn { color: var(--star); font-weight: 400; }
+  .foldout { margin: 32px 0 12px; }
+  .foldout summary { cursor: pointer; font-size: 15px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  .foldout .note { margin: 9px 0 5px; }
+  .mrow { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 16px; }
+  .mrow button { padding: 0; border: none; background: none; color: var(--accent-link); font-weight: 500; font-size: 15px; }
+  #mutedList, #catalogRemovedList { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 24px; }
+  .cbtn { position: absolute; right: 7px; padding: 6px; border: none; background: none; color: var(--muted); line-height: 0; border-radius: 7px; }
+  .cbtn svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .cbtn:hover { color: var(--text); }
+  .cbtn.cremove:hover { color: var(--danger); }
+  .cmute { top: 7px; right: 9px; }
+  .cremove { bottom: 7px; }
+  /* feed: the mute icon appears on hover; the title keeps room for it */
+  #feedGrid .cmute { opacity: 0; transition: opacity .12s; }
+  #feedGrid .card:hover .cmute, #feedGrid .card:focus-within .cmute { opacity: 1; }
+  @media (hover: none) { #feedGrid .cmute { opacity: 1; } }
+  #feedGrid .card.has-mute .title { padding-right: 30px; }
+  /* catalog: the icons only exist while editing */
+  #catalogView .cbtn { display: none; }
+  #catalogView.editing .cbtn { display: block; }
+  #catalogView.editing .card.has-mute .title { padding-right: 30px; }
+  #catalogView .card .actions { padding-right: 35px; }
+  /* Listen later button: bottom-right of every catalog card; the trash icon takes its place while editing */
+  .clater { bottom: 7px; }
+  #catalogView .cbtn.clater { display: block; }
+  #catalogView.editing .cbtn.clater { display: none; }
+  .cbtn.clater.on { color: var(--later); }
+  .cbtn.clater.on svg { stroke-width: 2.3; }
+  .editbtn { margin-left: 12px; padding: 2px 13px; border: 1px solid var(--border); border-radius: 999px; background: none; color: var(--muted); font-size: 14px; font-weight: 500; vertical-align: 3px; }
+  .editbtn[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-text); }
+  #tip { position: fixed; z-index: 30; max-width: min(414px, 90vw); padding: 7px 12px; background: var(--panel); border: 1px solid var(--muted); border-radius: 7px; box-shadow: 0 4px 16px rgba(0,0,0,.4); font-size: 15px; line-height: 1.35; overflow-wrap: anywhere; pointer-events: none; }
+  #muteMenu, #pickMenu { position: fixed; z-index: 20; min-width: 230px; max-width: min(368px, 92vw); padding: 9px; background: var(--panel); border: 1px solid var(--muted); border-radius: 9px; box-shadow: 0 6px 22px rgba(0,0,0,.4); }
+  #muteMenu .mm-title, #pickMenu .mm-title { padding: 2px 9px 7px; font-size: 14px; color: var(--muted); }
+  #muteMenu button, #pickMenu button { display: block; width: 100%; padding: 8px 9px; border: none; border-radius: 7px; background: none; color: inherit; font-size: 16px; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #muteMenu button:hover, #pickMenu button:hover { background: var(--border); }
+  #pickMenu button { display: flex; align-items: center; gap: 9px; }
+  #pickMenu .pm-check { width: 16px; flex: none; color: var(--accent-link); font-weight: 400; visibility: hidden; }
+  #pickMenu button[aria-checked="true"] { font-weight: 400; }
+  #pickMenu button[aria-checked="true"] .pm-check { visibility: visible; }
+  #muteMenu .mm-cancel { color: var(--muted); }
+  #toasts { position: fixed; left: 50%; bottom: 23px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 9px; z-index: 10; }
+  .toast { display: flex; align-items: center; gap: 16px; max-width: min(598px, 92vw); padding: 10px 16px; background: var(--panel); border: 1px solid var(--muted); border-radius: 9px; box-shadow: 0 4px 18px rgba(0,0,0,.35); font-size: 15px; }
+  .toast .msg { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .toast button { padding: 0; border: none; background: none; color: var(--accent-link); font-weight: 500; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <img class="logo" src="data:image/png;base64,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" alt="" width="42" height="42">
+      <h1>RELEASE TRACKER</h1>
+    </div>
+    <div style="display:flex; gap:10px; align-items:center;">
+      <span class="status" id="status"></span>
+      <button id="refreshBtn" title="Re-check every artist now">Refresh all</button>
+    </div>
+  </header>
+
+  <nav>
+    <button id="tabFeed" class="active">Feed</button>
+    <button id="tabArtists">Artists</button>
+    <span class="tabwrap" id="catalogTab" hidden>
+      <button id="tabCatalog"><span id="catalogTabName" data-clip></span></button>
+      <button class="x" id="catalogClose" title="Close" aria-label="Close catalog">×</button>
+    </span>
+  </nav>
+
+  <section id="feedView">
+    <div class="filterbar">
+      <div class="cats" id="cats">
+        <button data-cat="new">New releases <span class="n" id="nNew"></span></button>
+        <button data-cat="features">Features <span class="n" id="nFeat"></span></button>
+        <button data-cat="upcoming">Upcoming <span class="n" id="nUp"></span></button>
+        <button data-cat="later">Listen later <span class="n" id="nLater"></span></button>
+      </div>
+      <div class="right">
+      <div class="days" id="sortBox">
+        <button type="button" class="pickbtn" id="sortBtn" aria-haspopup="menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16M7 20l-3-3M7 20l3-3M17 20V4M17 4l-3 3M17 4l3 3"/></svg></button>
+        <select id="sortSel" hidden></select>   <!-- hidden: holds the choice and its option list; the icon's menu shows them -->
+      </div>
+      <div class="days" id="daysBox">
+        <button type="button" class="pickbtn" id="daysBtn" aria-haspopup="menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3v4M16 3v4M4 9h16M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg></button>
+        <select id="daysSel" hidden>
+          <option value="30">past month</option>
+          <option value="90">past 3 months</option>
+          <option value="183">past 6 months</option>
+          <option value="365">past year</option>
+          <option value="0">all time</option>
+        </select>
+      </div>
+      <button id="exportBtn" aria-expanded="false">Export playlist</button>
+      </div>
+    </div>
+    <div class="panel" id="exportPanel" hidden>
+      <div class="exportrow">
+        <label class="note" for="exportLimit" style="margin:0">Up to</label>
+        <select id="exportLimit">
+          <option value="50">50 songs</option>
+          <option value="100">100 songs</option>
+          <option value="250">250 songs</option>
+          <option value="500">500 songs</option>
+          <option value="0">no limit</option>
+        </select>
+        <button class="primary" id="exportPrepare">Prepare list</button>
+      </div>
+      <div class="note" id="exportStatus">Lists the songs of the releases in this tab, in the order shown. Whole releases only, so the list can come out slightly under the limit.</div>
+      <div id="exportResult" hidden>
+        <div class="exportrow" style="margin-top:12px">
+          <button id="exportCsv">Download CSV</button>
+          <button id="exportCopy">Copy song list</button>
+          <a class="btnlink" href="https://soundiiz.com/webapp/playlists" target="_blank" rel="noopener">Open Soundiiz<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <button id="exportHide">Hide these releases</button>
+        </div>
+        <div class="note">In Soundiiz: Import Playlist, then From File (the CSV) or From Plain Text (the copied list), and send it to Apple Music.</div>
+      </div>
+    </div>
+    <h2 id="feedHeading">New releases</h2>
+    <div class="note" id="feedCapNote" style="margin:0 0 12px" hidden></div>
+    <div class="grid" id="feedGrid"></div>
+    <div class="empty" id="feedEmpty" hidden></div>
+  </section>
+
+  <section id="catalogView" hidden>
+    <div id="catalogSentinel"></div>
+    <div class="cathead" id="catalogHead"></div>
+    <div class="grid" id="catalogGrid" style="margin-top:14px;"></div>
+    <div id="catalogFeaturesBlock" hidden>
+      <h2>Appears on (<span id="catalogFeatureCount"></span>)</h2>
+      <div class="grid" id="catalogFeatures"></div>
+    </div>
+    <details class="foldout" id="catalogRemovedBlock" hidden>
+      <summary>Removed from catalog (<span id="catalogRemovedCount">0</span>)</summary>
+      <p class="note">Left out of this catalog, the counts and the feed. Restore brings one back.</p>
+      <div id="catalogRemovedList"></div>
+    </details>
+  </section>
+
+  <section id="artistsView" hidden>
+    <div class="addbar">
+      <h2>Add an artist</h2>
+      <div class="row" id="searchRow">
+        <div class="field">
+          <input type="text" id="term" placeholder="Artist name or link" autocomplete="off">
+          <button type="button" class="clearbtn" id="clearSearch" title="Clear search" aria-label="Clear search" hidden>×</button>
+        </div>
+        <button class="primary" id="searchBtn">Search</button>
+      </div>
+      <div id="addPanel" class="panel" hidden></div>
+    </div>
+
+    <h2>Tracked artists (<span id="artistCount">0</span>)</h2>
+    <div class="agrid" id="artistList"></div>
+
+    <details class="foldout" id="mutedBlock" hidden>
+      <summary>Muted names (<span id="mutedCount">0</span>)</summary>
+      <p class="note">Releases crediting these names are left out of the feed, the catalogs and the counts.</p>
+      <div id="mutedList"></div>
+    </details>
+  </section>
+</div>
+
+<div id="muteMenu" hidden></div>
+<div id="pickMenu" role="menu" hidden></div>
+<div id="toasts" aria-live="polite"></div>
+
+<script>
+const ARROW = `<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const STAR = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.2 1.2-6.5L2.5 9.5l6.6-.9z" stroke-linejoin="round"/></svg>`;
+const MUTE_ICON = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4zM22 9l-6 6M16 9l6 6"/></svg>`;
+const LATER_ICON = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8M3 3v5h5M12 7v5l4 2"/></svg>`;
+const TRASH_ICON = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4.5h6V7M6 7l1 13h10l1-13M10 11v6M14 11v6"/></svg>`;
+const CHECK_ICON = `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>`;
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c =>
+  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+// The Feed/Artists nav bar is pinned to the top of the page; the catalog header, the add-artist
+// bar and the artist search box are pinned right below it, at --navh, rather than at 0, so the
+// two don't overlap. Measured (rather than a fixed guess) so it stays right if the nav's own
+// size ever changes (a longer artist name in the catalog tab wrapping to a second line, a
+// narrower window). navSizeEl is any element whose resize should trigger a re-measure.
+const navSizeEl = document.querySelector('nav');
+function setNavHeight() {
+  document.documentElement.style.setProperty('--navh', navSizeEl.getBoundingClientRect().height + 'px');
+}
+new ResizeObserver(setNavHeight).observe(navSizeEl);
+setNavHeight();
+
+async function api(path, method = 'GET', body) {
+  const opts = { method };
+  if (method !== 'GET') {
+    opts.headers = { 'Content-Type': 'application/json' };
+    opts.body = JSON.stringify(body || {});
+  }
+  const res = await fetch(path, opts);
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+  return data;
+}
+
+/* ---------- tabs ---------- */
+function showTab(name) {
+  $('feedView').hidden = name !== 'feed';
+  $('artistsView').hidden = name !== 'artists';
+  $('catalogView').hidden = name !== 'catalog';
+  $('tabFeed').classList.toggle('active', name === 'feed');
+  $('tabArtists').classList.toggle('active', name === 'artists');
+  $('catalogTab').classList.toggle('active', name === 'catalog');
+  if (name !== 'artists' && !$('addPanel').hidden) {
+    // Leaving the Artists tab: the box under the search bar (search results, or the last
+    // action taken) is specific to that page, so it shouldn't still be sitting there next
+    // time the tab is opened.
+    $('addPanel').hidden = true;
+    $('addPanel').innerHTML = '';
+    syncClear();
+  }
+}
+$('tabFeed').onclick = () => {
+  if (!$('artistsView').hidden) artistsScroll = window.scrollY;
+  showTab('feed');
+  window.scrollTo(0, feedScroll);
+};
+$('tabArtists').onclick = () => {
+  if (!$('feedView').hidden) feedScroll = window.scrollY;
+  showTab('artists');
+  window.scrollTo(0, artistsScroll);
+};
+$('tabCatalog').onclick = () => showTab('catalog');
+
+/* ---------- feed ---------- */
+function fmtDate(iso) {
+  if (!iso) return '';
+  return new Date(iso).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+}
+
+function card(r, { showArtist = true, canHide = true, canMute = true, canRemove = false, canLater = false, showFeaturing = true } = {}) {
+  const art = r.artwork || '';
+  const appUrl = r.app_url || '';
+  const tracks = r.track_count ? ` · ${r.track_count} track${r.track_count === 1 ? '' : 's'}` : '';
+  const hasMute = canMute && r.mute_options && r.mute_options.length;
+  const hasMetaLine = (showArtist && !!r.artist) || (showFeaturing && r.kind === 'feature' && !!r.for_artist);
+  return `
+    <div class="card${hasMute ? ' has-mute' : ''}${hasMetaLine ? '' : ' no-meta'}" data-id="${r.id}">
+      ${art ? `<img src="${esc(art)}" alt="" loading="lazy">` : '<img alt="">'}
+      <div class="info">
+        <div class="title" data-tip="${esc(r.title)}" data-clip>${esc(r.title)}</div>
+        ${(() => {
+          const featuring = showFeaturing && r.kind === 'feature' && r.for_artist;
+          const star = r.favorite ? `<span class="star" title="Favorite artist">${STAR}</span>` : '';
+          if (showArtist && featuring) {
+            const text = `${r.artist} (feat. ${r.for_artist})`;
+            return `<div class="meta clip" data-tip="${esc(text)}" data-clip>${star}${esc(r.artist)} (feat. ${esc(r.for_artist)})</div>`;
+          }
+          if (showArtist) return `<div class="meta clip" data-tip="${esc(r.artist)}" data-clip>${star}${esc(r.artist)}</div>`;
+          if (featuring) return `<div class="meta clip" data-tip="featuring ${esc(r.for_artist)}" data-clip>featuring ${esc(r.for_artist)}</div>`;
+          return '';
+        })()}
+        <div class="meta dim">${esc(fmtDate(r.release_date))}${tracks}</div>
+        <div class="actions">
+          ${appUrl ? `<a href="${esc(appUrl)}">Open in Apple Music${ARROW}</a>` : ''}
+          ${canHide ? `<button class="hidebtn" data-ignore="${r.id}" title="Mark as listened (hide)" aria-label="Mark as listened, hide">${CHECK_ICON}</button>` : ''}
+        </div>
+      </div>
+      ${hasMute ? `<button class="cbtn cmute" data-mute="${esc(JSON.stringify(r.mute_options))}" title="Mute a credited name…" aria-label="Mute a credited name">${MUTE_ICON}</button>` : ''}
+      ${canLater ? `<button class="cbtn clater${r.later ? ' on' : ''}" data-later="${r.id}" data-on="${r.later ? 1 : 0}" data-title="${esc(r.title)}" title="${r.later ? 'In Listen later (click to remove)' : 'Add to Listen later'}" aria-label="${r.later ? 'Remove from Listen later' : 'Add to Listen later'}" aria-pressed="${r.later ? 'true' : 'false'}">${LATER_ICON}</button>` : ''}
+      ${canRemove ? `<button class="cbtn cremove" data-remove-release="${r.id}" data-title="${esc(r.title)}" title="Remove from this catalog" aria-label="Remove from this catalog">${TRASH_ICON}</button>` : ''}
+    </div>`;
+}
+
+function getDays() {
+  try { return localStorage.getItem('feedDays') || '183'; } catch (_) { return '183'; }
+}
+$('daysSel').value = getDays();
+$('daysSel').onchange = () => {
+  try { localStorage.setItem('feedDays', $('daysSel').value); } catch (_) {}
+  resetExport();
+  loadFeed();
+};
+
+const CATEGORIES = {
+  new: { title: 'New releases', empty: 'Nothing new in this period. Releases that appear after you add an artist will show up here.',
+         match: r => r.kind === 'own' && !r.upcoming && !r.later },
+  features: { title: 'Features', empty: 'No features in this period. These are releases that credit one of your artists without being theirs (Apple Music’s “Appears on”).',
+         match: r => r.kind === 'feature' && !r.upcoming && !r.later },
+  upcoming: { title: 'Upcoming', empty: 'No upcoming releases right now. Apple usually only lists a release once it can be pre-added, so announcements can show up late.',
+         match: r => r.upcoming && !r.later },
+  later: { title: 'Listen later', empty: 'Nothing saved for later. Use the clock button on a release in an artist’s catalog to add it here.',
+         match: r => r.later },
+};
+let feedData = [];
+let feedTotal = 0;   // how many releases the server had before it cut the list (see loadFeed)
+let category = (() => { try { const c = localStorage.getItem('feedCat'); return CATEGORIES[c] ? c : 'new'; } catch (_) { return 'new'; } })();
+
+// Releases from starred artists go first; each group keeps its existing order.
+const prioritize = list => [...list.filter(r => r.favorite), ...list.filter(r => !r.favorite)];
+
+/* ---------- sorting ----------
+   Each tab has its own list of sort options; the first one is that tab's default. Starred artists always
+   come first with every sort (except in Listen later), each group sorted by the chosen option.
+   Sorting happens here in the browser; ties keep the order the server sent (newest first). */
+const dateOf = r => (r.release_date || '').slice(0, 10);
+// dir 1: oldest first, dir -1: newest first. Releases without a date go last either way.
+const byDate = dir => (a, b) => {
+  const x = dateOf(a), y = dateOf(b);
+  if (!x || !y) return (!x) - (!y);
+  return dir * x.localeCompare(y);
+};
+const byName = key => (a, b) => String(key(a) || '').localeCompare(String(key(b) || ''), undefined, { sensitivity: 'base' });
+const byTracks = (a, b) => (b.track_count || 0) - (a.track_count || 0);   // most first, unknown last
+const chain = (...fns) => (a, b) => { for (const f of fns) { const c = f(a, b); if (c) return c; } return 0; };
+
+const SORTS = {
+  new: [
+    { key: 'newest', label: 'Newest first', cmp: byDate(-1) },
+    { key: 'oldest', label: 'Oldest first', cmp: byDate(1) },
+    { key: 'artist', label: 'Artist A–Z', cmp: chain(byName(r => r.artist), byDate(-1)) },
+    { key: 'tracks', label: 'Most tracks first', cmp: chain(byTracks, byDate(-1)) },
+  ],
+  features: [
+    { key: 'newest', label: 'Newest first', cmp: byDate(-1) },
+    { key: 'oldest', label: 'Oldest first', cmp: byDate(1) },
+    { key: 'artist', label: 'Your artist A–Z', cmp: chain(byName(r => r.for_artist), byDate(-1)) },   // the name in the "featuring …" line
+    { key: 'tracks', label: 'Most tracks first', cmp: chain(byTracks, byDate(-1)) },
+  ],
+  upcoming: [
+    { key: 'soonest', label: 'Soonest first', cmp: byDate(1) },
+    { key: 'furthest', label: 'Furthest away first', cmp: byDate(-1) },
+    { key: 'artist', label: 'Artist A–Z', cmp: chain(byName(r => r.artist), byDate(1)) },
+  ],
+  later: [   // the server sends the queue most recently added first
+    { key: 'added', label: 'Recently added', cmp: () => 0 },
+    { key: 'oldestAdded', label: 'Oldest added first', reverse: true },
+    { key: 'dateNew', label: 'Release date, newest first', cmp: byDate(-1) },
+    { key: 'dateOld', label: 'Release date, oldest first', cmp: byDate(1) },
+    { key: 'artist', label: 'Artist A–Z', cmp: chain(byName(r => r.artist || r.for_artist), byDate(-1)) },
+    { key: 'tracks', label: 'Most tracks first', cmp: chain(byTracks, byDate(-1)) },
+  ],
+};
+
+function getSortPrefs() {
+  try { return JSON.parse(localStorage.getItem('feedSort')) || {}; } catch (_) { return {}; }
+}
+function currentSort() {
+  const options = SORTS[category];
+  return options.find(o => o.key === getSortPrefs()[category]) || options[0];
+}
+$('sortSel').onchange = () => {
+  try { localStorage.setItem('feedSort', JSON.stringify({ ...getSortPrefs(), [category]: $('sortSel').value })); } catch (_) {}
+  resetExport();
+  renderFeed();
+};
+
+// Fills the (hidden) sort select for the current tab and refreshes the icons' tooltips.
+function syncSort() {
+  const sel = $('sortSel');
+  if (sel.dataset.cat !== category) {   // the options differ per tab
+    sel.innerHTML = SORTS[category].map(o => `<option value="${o.key}">${o.label}</option>`).join('');
+    sel.dataset.cat = category;
+  }
+  sel.value = currentSort().key;
+  syncPickButtons();
+}
+
+/* ---------- option menus behind the Sort by and Releases from icons ---------- */
+const PICKERS = {
+  sort: { btn: 'sortBtn', sel: 'sortSel', title: 'Sort by' },
+  days: { btn: 'daysBtn', sel: 'daysSel', title: 'Releases from' },
+};
+
+function syncPickButtons() {   // tooltip and screen-reader label show the current choice
+  for (const p of Object.values(PICKERS)) {
+    const sel = $(p.sel), opt = sel.options[sel.selectedIndex];
+    const text = `${p.title}: ${opt ? opt.textContent : ''}`;
+    $(p.btn).dataset.tip = text;
+    $(p.btn).setAttribute('aria-label', text);
+  }
+}
+
+function closePickMenu() {
+  $('pickMenu').hidden = true;
+  for (const p of Object.values(PICKERS)) $(p.btn).setAttribute('aria-expanded', 'false');
+}
+
+function openPickMenu(name) {
+  const p = PICKERS[name], sel = $(p.sel), btn = $(p.btn), menu = $('pickMenu');
+  const wasOpen = !menu.hidden && menu.dataset.picker === name;
+  closePickMenu();
+  if (wasOpen) return;   // clicking the icon again closes its menu
+  menu.dataset.picker = name;
+  menu.innerHTML = `<div class="mm-title">${p.title}</div>`
+    + [...sel.options].map(o => `<button role="menuitemradio" aria-checked="${o.value === sel.value}" data-pick="${esc(o.value)}"><span class="pm-check">✓</span>${esc(o.textContent)}</button>`).join('');
+  menu.hidden = false;
+  btn.setAttribute('aria-expanded', 'true');
+  const r = btn.getBoundingClientRect(), m = menu.getBoundingClientRect();
+  menu.style.left = Math.max(8, Math.min(r.left, window.innerWidth - m.width - 8)) + 'px';
+  menu.style.top = (r.bottom + 6 + m.height > window.innerHeight ? Math.max(8, r.top - m.height - 6) : r.bottom + 6) + 'px';
+}
+
+$('sortBtn').onclick = () => openPickMenu('sort');
+$('daysBtn').onclick = () => openPickMenu('days');
+
+$('pickMenu').addEventListener('click', e => {
+  const b = e.target.closest('[data-pick]');
+  if (!b) return;
+  const sel = $(PICKERS[$('pickMenu').dataset.picker].sel);
+  closePickMenu();
+  if (sel.value === b.dataset.pick) return;
+  sel.value = b.dataset.pick;
+  sel.onchange();       // the same handler the dropdown used to trigger
+  syncPickButtons();
+});
+document.addEventListener('click', e => {
+  if (!e.target.closest('#pickMenu, .pickbtn')) closePickMenu();
+});
+window.addEventListener('scroll', closePickMenu, true);
+window.addEventListener('resize', closePickMenu);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePickMenu(); });
+
+syncSort();   // fill the icons' menus right away, even before the feed has loaded
+
+// What the current tab shows, in the order shown (the playlist export follows this order too).
+function visibleItems() {
+  const sort = currentSort();
+  const items = feedData.filter(CATEGORIES[category].match);
+  const sorted = sort.reverse ? items.reverse() : items.sort(sort.cmp);   // filter() made a fresh array, so sorting it is safe
+  return category === 'later' ? sorted : prioritize(sorted);   // no favorites priority in Listen later
+}
+
+function renderFeed() {
+  const cat = CATEGORIES[category];
+  const items = visibleItems();
+  $('feedHeading').textContent = cat.title;
+  const shown = feedData.filter(r => !r.later).length;
+  const capped = feedTotal > shown && category !== 'later';     // the server sends at most the newest 500
+  $('feedCapNote').hidden = !capped;
+  if (capped) $('feedCapNote').textContent = `Showing the newest ${shown} of ${feedTotal} releases across all tabs. Hide some to see older ones.`;
+  syncSort();
+  $('daysBox').hidden = category === 'upcoming' || category === 'later';   // the period filter doesn't apply to these
+  const canExport = category !== 'upcoming';       // upcoming releases can't be listened to yet
+  $('exportBtn').hidden = !canExport;
+  if (!canExport) { $('exportPanel').hidden = true; $('exportBtn').setAttribute('aria-expanded', 'false'); }
+  $('feedGrid').innerHTML = items.map(r => card(r, { canHide: !r.upcoming, showFeaturing: category === 'features' })).join('');   // Hide only once a release is out
+  $('feedEmpty').textContent = cat.empty;
+  $('feedEmpty').hidden = items.length > 0;
+  for (const [key, id] of [['new', 'nNew'], ['features', 'nFeat'], ['upcoming', 'nUp'], ['later', 'nLater']]) {
+    $(id).textContent = feedData.filter(CATEGORIES[key].match).length;
+  }
+  document.querySelectorAll('#cats button').forEach(b => b.classList.toggle('active', b.dataset.cat === category));
+}
+
+$('cats').addEventListener('click', e => {
+  const b = e.target.closest('[data-cat]');
+  if (!b) return;
+  category = b.dataset.cat;
+  resetExport();
+  try { localStorage.setItem('feedCat', category); } catch (_) {}
+  renderFeed();
+});
+
+let feedRequestSeq = 0;   // bumped by every loadFeed() and by dropFromFeed(); a response only counts if it is still the latest
+async function loadFeed() {
+  const seq = ++feedRequestSeq;
+  const { releases, total } = await api('/api/feed?days=' + encodeURIComponent($('daysSel').value));
+  if (seq !== feedRequestSeq) return;   // something newer happened meanwhile (another load, or a release hidden here); its state wins
+  if (total === feedTotal && JSON.stringify(releases) === JSON.stringify(feedData)) return;   // unchanged: keep the page as it is
+  feedData = releases;
+  feedTotal = total;
+  renderFeed();
+}
+
+// Releases hidden on the page: drop them locally right away. If the server had more than it sent, the
+// hidden ones leave room for older releases, so ask for the list again.
+function dropFromFeed(ids) {
+  const count = () => feedData.filter(r => !r.later).length;
+  const before = count();
+  feedRequestSeq++;   // a load already in flight may have read the list before the hide went through: discard it
+  feedData = feedData.filter(r => !ids.has(String(r.id)));
+  feedTotal = Math.max(0, feedTotal - (before - count()));
+  renderFeed();
+  if (feedTotal > count()) loadFeed();
+}
+
+function toast(message, undo) {
+  const el = document.createElement('div');
+  el.className = 'toast';
+  el.innerHTML = `<span class="msg">${esc(message)}</span>${undo ? '<button>Undo</button>' : ''}`;
+  const timer = setTimeout(() => el.remove(), 8000);
+  if (undo) el.querySelector('button').onclick = async () => { clearTimeout(timer); el.remove(); await undo(); };
+  $('toasts').appendChild(el);
+}
+
+document.addEventListener('click', async e => {
+  const btn = e.target.closest && e.target.closest('[data-ignore]');
+  if (!btn) return;
+  const id = btn.dataset.ignore;
+  const item = feedData.find(r => String(r.id) === id);
+  await api(`/api/releases/${id}/ignore`, 'POST');
+  dropFromFeed(new Set([id]));
+  toast(`Hid “${item ? item.title : 'release'}”`, async () => {
+    await api(`/api/releases/${id}/ignore`, 'POST', { undo: true });
+    await loadFeed();
+  });
+});
+
+/* ---------- export as playlist ----------
+   Asks the server for the songs of the releases in the current tab, then hands them over as a CSV file
+   or plain text for Soundiiz to import into Apple Music. */
+let exportData = null;   // the last prepared list: { tracks, release_ids, releases, left_out, no_tracks, category }
+const EXPORT_DEFAULT_LIMIT = '100';
+
+function resetExport() {
+  exportData = null;
+  $('exportResult').hidden = true;
+  $('exportStatus').textContent = 'Lists the songs of the releases in this tab, in the order shown. Whole releases only, so the list can come out slightly under the limit.';
+}
+
+$('exportBtn').onclick = () => {
+  const open = $('exportPanel').hidden;
+  $('exportPanel').hidden = !open;
+  $('exportBtn').setAttribute('aria-expanded', String(open));
+  if (open) {
+    try { $('exportLimit').value = localStorage.getItem('exportLimit') || EXPORT_DEFAULT_LIMIT; } catch (_) {}
+  }
+};
+
+const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
+
+$('exportPrepare').onclick = async () => {
+  let items = visibleItems();
+  let notOut = 0;
+  if (category === 'later') {       // a queued release that isn't out yet has nothing to listen to
+    notOut = items.filter(r => r.upcoming).length;
+    items = items.filter(r => !r.upcoming);
+  }
+  if (!items.length) {
+    resetExport();
+    $('exportStatus').textContent = notOut ? `${plural(notOut, 'release')} not out yet.` : 'Nothing to export in this tab.';
+    return;
+  }
+  try { localStorage.setItem('exportLimit', $('exportLimit').value); } catch (_) {}
+  const cat = category;
+  $('exportPrepare').disabled = true;
+  $('exportResult').hidden = true;
+  $('exportStatus').textContent = 'Looking up songs. This can take a minute for a long list.';
+  try {
+    const data = await api('/api/export', 'POST', {
+      limit: Number($('exportLimit').value),
+      items: items.map(r => ({ id: r.id, kind: r.kind, for_artist: r.for_artist })),
+    });
+    exportData = { ...data, category: cat };
+    const parts = [`${plural(data.tracks.length, 'song')} from ${plural(data.releases, 'release')}`];
+    if (data.tracks.length) parts.push(`${data.isrc_found} with an ISRC`);
+    if (data.left_out) parts.push(`${plural(data.left_out, 'more release')} left out by the limit`);
+    if (data.no_tracks) parts.push(`${plural(data.no_tracks, 'release')} with no songs to list`);
+    if (notOut) parts.push(`${plural(notOut, 'release')} not out yet`);
+    const text = parts.join('; ') + '.';
+    $('exportStatus').textContent = data.tracks.length ? text : 'No songs found for these releases.';
+    $('exportResult').hidden = !data.tracks.length;
+    $('exportHide').hidden = !data.releases;
+    $('exportHide').textContent = `Hide these ${plural(data.releases, 'release')}`;
+  } catch (e) {
+    $('exportStatus').textContent = 'Could not build the list: ' + e.message;
+  } finally {
+    $('exportPrepare').disabled = false;
+  }
+};
+
+const csvCell = v => { v = String(v ?? ''); return /[",\r\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
+
+$('exportCsv').onclick = () => {
+  if (!exportData) return;
+  const rows = [['title', 'artist', 'album', 'isrc'],
+                ...exportData.tracks.map(t => [t.title, t.artist, t.album, t.isrc ?? ''])];
+  const csv = '\ufeff' + rows.map(r => r.map(csvCell).join(',')).join('\r\n') + '\r\n';
+  const d = new Date(), pad = n => String(n).padStart(2, '0');
+  const name = `${CATEGORIES[exportData.category].title} - ${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}.csv`;
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 10000);
+  $('exportStatus').textContent = `Saved “${name}” to your downloads.`;
+};
+
+$('exportCopy').onclick = async () => {
+  if (!exportData) return;
+  // Soundiiz's plain-text import accepts a bare ISRC as a whole line in place of "Artist - Title" --
+  // an exact match, so it's used whenever a song has one instead of the artist/title guess.
+  const text = exportData.tracks.map(t => t.isrc || `${t.artist} - ${t.title}`).join('\n');
+  try {
+    await navigator.clipboard.writeText(text);
+    $('exportStatus').textContent = `Copied ${plural(exportData.tracks.length, 'song')} to the clipboard.`;
+  } catch (_) {
+    $('exportStatus').textContent = 'Could not copy to the clipboard. Use Download CSV instead.';
+  }
+};
+
+$('exportHide').onclick = async () => {
+  if (!exportData) return;
+  const ids = exportData.release_ids;
+  $('exportHide').disabled = true;
+  try {
+    await api('/api/releases/ignore', 'POST', { ids });
+  } finally {
+    $('exportHide').disabled = false;
+  }
+  resetExport();
+  dropFromFeed(new Set(ids.map(String)));
+  toast(`Hid ${plural(ids.length, 'release')}`, async () => {
+    await api('/api/releases/ignore', 'POST', { ids, undo: true });
+    await loadFeed();
+  });
+};
+
+/* ---------- tooltips ----------
+   Own tooltips instead of the browser's: those get cancelled whenever the page re-renders (which happens
+   during a refresh) and are slow to appear. Lines marked data-clip only show one when their text is cut off;
+   any other element with a title="..." gets one too. */
+const tip = document.createElement('div');
+tip.id = 'tip';
+tip.hidden = true;
+document.body.appendChild(tip);
+let tipTimer = null, tipEl = null;
+
+function hideTip() { clearTimeout(tipTimer); tipEl = null; tip.hidden = true; }
+
+document.addEventListener('mouseover', e => {
+  const el = e.target.closest && e.target.closest('[data-tip], [title]');
+  if (el === tipEl) return;
+  hideTip();
+  if (!el) return;
+  if (el.hasAttribute('title')) {            // take over from the browser's own tooltip
+    el.dataset.tip = el.getAttribute('title');
+    el.removeAttribute('title');
+  }
+  const text = el.dataset.tip;
+  if (!text) return;
+  tipEl = el;
+  tipTimer = setTimeout(() => {
+    if (!el.isConnected) return;
+    let cut = el.scrollHeight > el.clientHeight + 1;
+    if (!cut) {
+      // scrollWidth/clientWidth are rounded to whole pixels, so an overflow of just a couple
+      // characters can round away entirely. Measuring the rendered content with a Range
+      // against the element's content-box width is sub-pixel accurate instead.
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      const cs = getComputedStyle(el);
+      const avail = el.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      cut = range.getBoundingClientRect().width > avail + 0.5;
+    }
+    if (el.hasAttribute('data-clip') && !cut) return;
+    tip.textContent = text;
+    tip.hidden = false;
+    const r = el.getBoundingClientRect(), t = tip.getBoundingClientRect();
+    tip.style.left = Math.max(8, Math.min(r.left, window.innerWidth - t.width - 8)) + 'px';
+    tip.style.top = (r.bottom + 6 + t.height > window.innerHeight - 8 ? Math.max(8, r.top - t.height - 6) : r.bottom + 6) + 'px';
+  }, 300);
+});
+document.addEventListener('mouseout', e => { if (tipEl && !tipEl.contains(e.relatedTarget)) hideTip(); });
+document.addEventListener('mousedown', hideTip);
+window.addEventListener('scroll', hideTip, true);
+
+/* ---------- mute: hide everything that credits a name ---------- */
+function closeMuteMenu() { $('muteMenu').hidden = true; }
+
+document.addEventListener('click', e => {
+  const btn = e.target.closest && e.target.closest('[data-mute]');
+  if (!btn) {
+    if (!e.target.closest('#muteMenu')) closeMuteMenu();
+    return;
+  }
+  const names = JSON.parse(btn.dataset.mute);
+  const menu = $('muteMenu');
+  menu.innerHTML = '<div class="mm-title">Hide everything crediting…</div>'
+    + names.map(n => `<button data-mute-name="${esc(n)}">${esc(n)}</button>`).join('')
+    + '<button class="mm-cancel" data-mute-cancel>Cancel</button>';
+  menu.hidden = false;
+  const r = btn.getBoundingClientRect(), m = menu.getBoundingClientRect();
+  menu.style.left = Math.max(8, Math.min(r.left, window.innerWidth - m.width - 8)) + 'px';
+  menu.style.top = (r.bottom + 6 + m.height > window.innerHeight ? Math.max(8, r.top - m.height - 6) : r.bottom + 6) + 'px';
+});
+window.addEventListener('scroll', closeMuteMenu, true);
+window.addEventListener('resize', closeMuteMenu);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMuteMenu(); });
+
+$('muteMenu').addEventListener('click', e => {
+  const d = e.target.dataset || {};
+  if (d.muteName !== undefined) muteName(d.muteName);
+  else if (d.muteCancel !== undefined) closeMuteMenu();
+});
+
+async function afterMuteChange() {
+  await Promise.all([loadFeed(), loadArtists(), loadMuted()]);
+  if (!$('catalogView').hidden && catalogArtistId !== null) openCatalog(catalogArtistId, $('catalogTabName').textContent, { quiet: true });
+}
+
+async function muteName(name) {
+  closeMuteMenu();
+  await api('/api/muted', 'POST', { name });
+  await afterMuteChange();
+  toast(`Muted “${name}”`, async () => {
+    await api('/api/muted?name=' + encodeURIComponent(name), 'DELETE');
+    await afterMuteChange();
+  });
+}
+
+async function loadMuted() {
+  const { muted } = await api('/api/muted');
+  $('mutedBlock').hidden = muted.length === 0;
+  $('mutedCount').textContent = muted.length;
+  $('mutedList').innerHTML = muted.map(n =>
+    `<div class="mrow"><span>${esc(n)}</span><button data-unmute="${esc(n)}">Unmute</button></div>`).join('');
+}
+
+$('mutedList').addEventListener('click', async e => {
+  const n = e.target.dataset && e.target.dataset.unmute;
+  if (n === undefined) return;
+  await api('/api/muted?name=' + encodeURIComponent(n), 'DELETE');
+  toast(`Unmuted “${n}”`);
+  await afterMuteChange();
+});
+
+/* ---------- artists ---------- */
+async function loadArtists() {
+  const { artists } = await api('/api/artists');
+  $('artistCount').textContent = artists.length;
+  $('artistList').innerHTML = artists.length
+    ? artists.map(a => `
+        <div class="acard">
+          <button class="amain" data-catalog="${a.id}" data-name="${esc(a.name)}">
+            <span class="thumb">${a.artwork ? `<img src="${esc(a.artwork)}" alt="" loading="lazy">` : ''}</span>
+            <span>
+              <span class="aname">${esc(a.name)}</span>
+              <span class="tags"><span class="tag">${a.releases} release${a.releases === 1 ? '' : 's'}</span>${a.features ? `<span class="tag">${a.features} feature${a.features === 1 ? '' : 's'}</span>` : ''}</span>
+            </span>
+          </button>
+          <button class="afav ${a.favorite ? 'on' : ''}" data-fav="${a.id}" data-name="${esc(a.name)}" data-on="${a.favorite ? 1 : 0}" aria-pressed="${a.favorite}"
+                  title="${a.favorite ? 'Remove from favorites' : 'Add to favorites'}">${STAR}</button>
+          <button class="aremove" data-remove="${a.id}" data-name="${esc(a.name)}" title="Stop tracking ${esc(a.name)}" aria-label="Stop tracking ${esc(a.name)}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4.5h6V7M6 7l1 13h10l1-13M10 11v6M14 11v6"/></svg></button>
+        </div>`).join('')
+    : '<div class="note">No artists yet.</div>';
+}
+
+// The Artists list is sorted alphabetically and favoriting doesn't change that (see get_artists on
+// the server), so toggling a favorite only needs to update this one button in place -- no need to
+// wait on the network or rebuild the whole list.
+function setFavButton(btn, on) {
+  btn.dataset.on = on ? '1' : '0';
+  btn.classList.toggle('on', on);
+  btn.setAttribute('aria-pressed', on);
+  btn.title = on ? 'Remove from favorites' : 'Add to favorites';
+  // A clicked button keeps keyboard focus, which would otherwise leave the whole card looking
+  // permanently hovered (border color, the untrack icon) until the user clicks elsewhere. The
+  // star's own fill (.on, above) already carries the "did this work" feedback on its own.
+  btn.blur();
+}
+
+$('artistList').addEventListener('click', async e => {
+  const fav = e.target.closest('[data-fav]');
+  if (fav) {
+    if (fav.dataset.busy) return;   // a request for this button is already in flight
+    const on = fav.dataset.on !== '1';
+    setFavButton(fav, on);
+    toast(`${on ? 'Favorited' : 'Unfavorited'} “${fav.dataset.name}”`);
+    fav.dataset.busy = '1';
+    try {
+      await api(`/api/artists/${fav.dataset.fav}/favorite`, 'POST', { favorite: on });
+    } catch (err) {
+      setFavButton(fav, !on);   // the request failed -- put the star back
+      toast(`Couldn't update favorite: ${err.message}`);
+      return;
+    } finally {
+      delete fav.dataset.busy;
+    }
+    return loadFeed();   // favorites are prioritized there; the artist list itself is unaffected
+  }
+  const cat = e.target.closest('[data-catalog]');
+  if (cat) return openCatalog(Number(cat.dataset.catalog), cat.dataset.name);
+  const rm = e.target.closest('[data-remove]');
+  if (!rm) return;
+  if (!confirm(`Stop tracking ${rm.dataset.name}?`)) return;
+  await api(`/api/artists/${rm.dataset.remove}`, 'DELETE');
+  toast(`Removed “${rm.dataset.name}” from tracked artists`);
+  if (catalogArtistId === Number(rm.dataset.remove)) dismissCatalog();
+  await Promise.all([loadArtists(), loadFeed()]);
+});
+
+/* ---------- artist catalog tab ---------- */
+let catalogArtistId = null;
+let catalogEditing = false;
+
+function setEditing(on) {
+  catalogEditing = on;
+  $('catalogView').classList.toggle('editing', on);
+  const b = $('editCatalog');
+  if (b) { b.setAttribute('aria-pressed', on); b.textContent = on ? 'Done' : 'Edit catalog'; }
+}
+$('catalogHead').addEventListener('click', e => { if (e.target.id === 'editCatalog') setEditing(!catalogEditing); });
+
+document.addEventListener('click', async e => {
+  const btn = e.target.closest && e.target.closest('[data-remove-release]');
+  if (!btn || catalogArtistId === null) return;
+  const aid = catalogArtistId, rid = btn.dataset.removeRelease, title = btn.dataset.title;
+  await api(`/api/artists/${aid}/releases/${rid}/remove`, 'POST');
+  await afterMuteChange();
+  toast(`Removed “${title}” from the catalog`, async () => {
+    await api(`/api/artists/${aid}/releases/${rid}/remove`, 'POST', { undo: true });
+    await afterMuteChange();
+  });
+});
+
+// Same reasoning as setFavButton on the Artists tab: update the button itself immediately rather
+// than waiting on the network. afterMuteChange() still runs after a successful toggle -- it's what
+// keeps the Listen later tab's own count and list in sync -- but the icon doesn't wait on it.
+// The double-submit guard is a plain data-busy flag rather than the disabled attribute, so the
+// browser's own dimmed/disabled styling doesn't cover the color just set optimistically.
+function setLaterButton(btn, on) {
+  btn.dataset.on = on ? '1' : '0';
+  btn.classList.toggle('on', on);
+  btn.setAttribute('aria-pressed', on);
+  btn.title = on ? 'In Listen later (click to remove)' : 'Add to Listen later';
+  btn.setAttribute('aria-label', on ? 'Remove from Listen later' : 'Add to Listen later');
+}
+
+document.addEventListener('click', async e => {
+  const btn = e.target.closest && e.target.closest('[data-later]');
+  if (!btn || catalogArtistId === null || btn.dataset.busy) return;
+  const on = btn.dataset.on !== '1';      // the state after this click; clicking again toggles it back
+  setLaterButton(btn, on);
+  toast(on ? `Added “${btn.dataset.title}” to Listen later` : `Removed “${btn.dataset.title}” from Listen later`);
+  btn.dataset.busy = '1';
+  try { await api(`/api/listen-later/${btn.dataset.later}`, 'POST', { artist_id: catalogArtistId, later: on }); }
+  catch (err) {
+    setLaterButton(btn, !on);
+    toast(`Couldn't update Listen later: ${err.message}`);
+    return;
+  } finally {
+    delete btn.dataset.busy;
+  }
+  await afterMuteChange();                // redraws the catalog and reloads the feed
+});
+
+$('catalogRemovedList').addEventListener('click', async e => {
+  const rid = e.target.dataset && e.target.dataset.restore;
+  if (rid === undefined || catalogArtistId === null) return;
+  await api(`/api/artists/${catalogArtistId}/releases/${rid}/remove`, 'POST', { undo: true });
+  await afterMuteChange();
+});
+
+// quiet = refresh the open catalog in place (no loading flash, keeps the scroll position)
+// The browser's back button closes the open catalog and returns to the artist list where it was left
+// (forward reopens it). The page is one document, so history entries are added by hand and the
+// browser's own scroll restoring is switched off: it would run before the list is visible again.
+history.scrollRestoration = 'manual';
+if (history.state && history.state.catalog) history.replaceState(null, '');   // e.g. after a reload
+let feedScroll = 0, artistsScroll = 0;   // each tab's last scroll position, restored on switching back to it
+
+async function openCatalog(id, name, { quiet = false, fromHistory = false } = {}) {
+  catalogArtistId = id;
+  $('catalogTabName').textContent = name;
+  $('catalogTabName').dataset.tip = name;
+  $('catalogTab').hidden = false;
+  if (!quiet) {
+    if (!$('artistsView').hidden) artistsScroll = window.scrollY;
+    if (!fromHistory) {
+      const entry = { catalog: id, name };
+      if (history.state && history.state.catalog) history.replaceState(entry, '');   // already on a catalog entry
+      else history.pushState(entry, '');
+    }
+    catalogEditing = false;
+    $('catalogHead').classList.remove('compact');
+    $('catalogHead').innerHTML = '';
+    $('catalogGrid').innerHTML = '<div class="note">Loading…</div>';
+    $('catalogFeaturesBlock').hidden = true;
+    $('catalogRemovedBlock').hidden = true;
+    showTab('catalog');
+    window.scrollTo(0, 0);
+  }
+  try {
+    const c = await api(`/api/artists/${id}/catalog`);
+    if (catalogArtistId !== id) return;   // user moved on to another artist meanwhile
+    const features = c.features || [];
+    const releaseNote = `${c.count} release${c.count === 1 ? '' : 's'}`;
+    const featureNote = features.length ? ` · ${features.length} feature${features.length === 1 ? '' : 's'}` : '';
+    $('catalogHead').innerHTML = `
+      <span class="thumb big">${c.artist.artwork ? `<img src="${esc(c.artist.artwork)}" alt="">` : ''}</span>
+      <div>
+        <div class="name">${esc(c.artist.name)}<button class="editbtn" id="editCatalog" aria-pressed="false">Edit catalog</button></div>
+        <div class="note">${releaseNote}${featureNote}</div>
+        ${c.capped ? '<div class="note"><span class="warn">Catalog may be incomplete</span> · Apple only lets a lookup see part of a very large catalog, so some releases may be missing.</div>' : ''}
+      </div>`;
+    setEditing(catalogEditing);
+    const cardOpts = { canHide: false, canRemove: true, canLater: true };   // show the credit when it isn't just the artist's own name
+    const draw = list => list.map(r => card(r, { ...cardOpts, showArtist: !!r.artist && r.artist !== c.artist.name })).join('');
+    $('catalogGrid').innerHTML = c.releases.length ? draw(c.releases)
+      : '<div class="empty">No releases stored for this artist.</div>';
+    $('catalogFeaturesBlock').hidden = features.length === 0;
+    $('catalogFeatureCount').textContent = features.length;
+    $('catalogFeatures').innerHTML = draw(features);
+    const removed = c.removed || [];
+    $('catalogRemovedBlock').hidden = removed.length === 0;
+    $('catalogRemovedCount').textContent = removed.length;
+    $('catalogRemovedList').innerHTML = removed.map(r =>
+      `<div class="mrow"><span>${esc(r.title)} <span class="note">· ${esc(fmtDate(r.release_date))}</span></span>`
+      + `<button data-restore="${r.id}">Restore</button></div>`).join('');
+  } catch (err) {
+    if (catalogArtistId === id) $('catalogGrid').innerHTML = `<div class="empty">Could not load catalog: ${esc(err.message)}</div>`;
+  }
+}
+
+// The pinned header's photo shrinks once the list has scrolled a little way under it, and grows back near the
+// top. The two thresholds differ so a short catalog (where shrinking changes how far the page can scroll)
+// can't flip back and forth. The sentinel marks where the header sits before it is pinned.
+let compactQueued = false;
+function updateCompactHeader() {
+  compactQueued = false;
+  if ($('catalogView').hidden) return;
+  const past = -$('catalogSentinel').getBoundingClientRect().top;   // how far the page is scrolled beyond the header's own spot
+  const head = $('catalogHead');
+  const compact = head.classList.contains('compact');
+  if (past > 60 && !compact) head.classList.add('compact');
+  else if (past < 5 && compact) head.classList.remove('compact');
+}
+window.addEventListener('scroll', () => {
+  if (!compactQueued) { compactQueued = true; requestAnimationFrame(updateCompactHeader); }
+}, { passive: true });
+
+function closeCatalog() {
+  const wasActive = !$('catalogView').hidden;
+  catalogArtistId = null;
+  $('catalogTab').hidden = true;
+  if (wasActive) showTab('artists');
+  return wasActive;
+}
+
+// Close the catalog tab (× button, or its artist was removed) by stepping back through history,
+// so no stale entry is left behind. The popstate handler below does the closing.
+function dismissCatalog() {
+  if (history.state && history.state.catalog) history.back();
+  else closeCatalog();
+}
+$('catalogClose').onclick = dismissCatalog;
+
+window.addEventListener('popstate', e => {
+  const st = e.state;
+  if (st && st.catalog) { openCatalog(st.catalog, st.name || '', { fromHistory: true }); return; }
+  if (closeCatalog()) requestAnimationFrame(() => window.scrollTo(0, artistsScroll));
+});
+
+/* ---------- add flow ---------- */
+let candidates = [];
+let othersPromise = null;   // the batched preview request for the other matches, started as soon as results arrive
+
+// While the search bar is pinned (list scrolled under it), the box under it growing or shrinking would shove the
+// list up or down. Browsers' own scroll anchoring doesn't do this reliably, so the scroll is corrected by hand.
+function keepListStill(change) {
+  const bar = document.querySelector('.addbar');
+  const stuck = window.scrollY > 0 && bar.getBoundingClientRect().top <= 0.5;
+  const before = bar.offsetHeight;
+  change();
+  const delta = bar.offsetHeight - before;
+  if (stuck && delta) window.scrollBy(0, delta);
+}
+
+function panel(html) {
+  keepListStill(() => { $('addPanel').hidden = false; $('addPanel').innerHTML = html; });
+  syncClear();
+}
+
+// The box under the search bar is also used for the "added artist" confirmation (with baseline/feature
+// counts); quick one-line notices (favorited, unmuted, removed) go through toast() instead so they don't
+// shove the list around -- see the artist-list click handler and unmute handler above.
+
+// The × in the search box: clears the text and hides the results. A search still in flight is dropped.
+let searchSeq = 0;
+function syncClear() { $('clearSearch').hidden = !$('term').value && $('addPanel').hidden; }
+function clearSearch() {
+  searchSeq++;
+  $('term').value = '';
+  keepListStill(() => { $('addPanel').hidden = true; $('addPanel').innerHTML = ''; });
+  candidates = [];
+  syncClear();
+  $('term').focus({ preventScroll: true });
+}
+$('clearSearch').onclick = clearSearch;
+$('term').addEventListener('input', syncClear);
+
+// Rounded tags for genre and release count, shown next to the artist name
+// (p may be null if the lookup failed)
+function metaTags(genre, p) {
+  const tags = [];
+  if (genre) tags.push(esc(genre));
+  if (p) tags.push(`${p.count}${p.more ? '+' : ''} release${p.count === 1 && !p.more ? '' : 's'}`);
+  return tags.map(x => `<span class="tag">${x}</span>`).join('');
+}
+
+// Recent releases: each title is led by its own cover art, which also marks where
+// one release ends and the next begins.
+function recentHtml(p) {
+  if (!p) return '';
+  // Older servers only send titles; still show those (without covers).
+  const items = p.recent_items || (p.recent || []).map(title => ({ title, artwork: null }));
+  return items.map(r => `
+    <span class="rel" title="${esc(r.title)}">
+      <span class="mini">${r.artwork ? `<img src="${esc(r.artwork)}" alt="" loading="lazy">` : ''}</span>
+      <span class="reltitle">${esc(r.title)}</span>
+    </span>`).join('');
+}
+
+async function search() {
+  const term = $('term').value.trim();
+  if (!term) return;
+  $('searchBtn').disabled = true;
+  const seq = ++searchSeq;
+  othersPromise = null;
+  panel('<span class="note">Searching…</span>');
+  try {
+    const { candidates: found } = await api('/api/search?term=' + encodeURIComponent(term));
+    if (seq !== searchSeq) return;      // cleared while searching
+    candidates = found;
+    if (!candidates.length) return panel(`<span class="note">No artists found for “${esc(term)}”.</span>`);
+    othersPromise = candidates.length > 1
+      ? api('/api/previews', 'POST', { artists: candidates.slice(1).map(c => ({ id: c.id, name: c.name })) }).catch(() => null)
+      : null;
+    await showTop();
+  } catch (err) {
+    panel(`<span class="note">Error: ${esc(err.message)}</span>`);
+  } finally {
+    $('searchBtn').disabled = false;
+  }
+}
+
+async function showTop() {
+  const top = candidates[0];
+  let p = null;
+  try { p = await api('/api/preview?id=' + top.id + '&name=' + encodeURIComponent(top.name)); } catch (_) {}
+  panel(`
+    <div class="title">Is this the artist you mean?</div>
+    <div class="top">
+      <span class="thumb big">${p && p.artwork ? `<img src="${esc(p.artwork)}" alt="">` : ''}</span>
+      <div class="grow">
+        <div><strong>${esc(top.name)}</strong>${metaTags(top.genre, p)}</div>
+        <div class="recents">${recentHtml(p)}</div>
+      </div>
+    </div>
+    ${top.tracked
+      ? '<div class="note">Already tracked.</div>'
+      : `<div class="btns"><button class="primary" id="yesBtn">Yes, add</button>
+           <button id="noBtn" ${candidates.length < 2 ? 'disabled' : ''}>No, show others</button></div>`}
+  `);
+  if (!top.tracked) {
+    $('yesBtn').onclick = () => add(top);
+    $('noBtn').onclick = showOthers;
+  }
+}
+
+function fillRow(row, c, p) {
+  if (!row) return;
+  row.querySelector('.thumb').innerHTML = p.artwork ? `<img src="${esc(p.artwork)}" alt="">` : '';
+  row.querySelector('[data-meta]').innerHTML = metaTags(c.genre, p);
+  row.querySelector('[data-preview]').innerHTML = recentHtml(p);
+}
+
+// the old one-request-per-artist path, kept as a fallback if the batched request failed
+async function loadPreviewInto(c, row) {
+  if (!row) return;
+  try {
+    fillRow(row, c, await api('/api/preview?id=' + c.id + '&name=' + encodeURIComponent(c.name)));
+  } catch (err) {
+    row.querySelector('[data-preview]').innerHTML = `<span class="note">Could not load: ${esc(err.message)}</span>`;
+  }
+}
+
+function showOthers() {
+  const others = candidates.slice(1);
+  const seq = searchSeq, pending = othersPromise;
+  panel(`<div class="title" style="margin-bottom:6px;">Other matches</div>` + others.map((c, i) => `
+    <div class="cand" data-i="${i + 1}">
+      <span class="thumb"></span>
+      <div class="grow">
+        <div><strong>${esc(c.name)}</strong><span data-meta>${metaTags(c.genre, null)}</span></div>
+        <div class="recents" data-preview><span class="note">Loading…</span></div>
+      </div>
+      <div class="btns">
+        ${c.tracked ? '<span class="note">Already tracked</span>' : '<button class="primary" data-act="add">Add</button>'}
+      </div>
+    </div>`).join(''));
+  const rowFor = i => $('addPanel').querySelector(`.cand[data-i="${i + 1}"]`);
+  (pending || Promise.resolve(null)).then(res => {
+    if (seq !== searchSeq) return;       // searched again or cleared meanwhile
+    others.forEach((c, i) => {
+      const p = res && res[c.id];
+      if (p) fillRow(rowFor(i), c, p); else loadPreviewInto(c, rowFor(i));
+    });
+  });
+}
+
+$('addPanel').addEventListener('click', e => {
+  if (!(e.target.dataset && e.target.dataset.act === 'add')) return;
+  const row = e.target.closest('.cand');
+  add(candidates[Number(row.dataset.i)]);
+});
+
+async function add(c) {
+  panel(`<span class="note">Adding ${esc(c.name)}…</span>`);
+  try {
+    const res = await api('/api/artists', 'POST', { id: c.id, name: c.name });
+    clearSearch();
+    toast(`${res.added} added to tracked artists`);
+    await loadArtists();
+  } catch (err) {
+    panel(`<span class="note">Error: ${esc(err.message)}</span>`);
+  }
+}
+
+$('searchBtn').onclick = search;
+$('term').addEventListener('keydown', e => { if (e.key === 'Enter') search(); else if (e.key === 'Escape') clearSearch(); });
+
+/* ---------- refresh ---------- */
+async function startRefresh(force) {
+  $('refreshBtn').disabled = true;
+  try { await api('/api/refresh', 'POST', { force }); } catch (_) {}
+  poll();
+}
+
+let lastDone = -1;
+let pollFailures = 0;
+const POLL_MAX_FAILURES = 5;   // in a row, 1.5 s apart, before giving up
+
+async function poll() {
+  let s;
+  try {
+    s = await api('/api/status');
+    pollFailures = 0;
+  } catch (_) {
+    if (++pollFailures < POLL_MAX_FAILURES) { setTimeout(poll, 1500); return; }   // probably a hiccup: try again
+    pollFailures = 0;
+    lastDone = -1;
+    $('refreshBtn').disabled = false;   // don't leave the button stuck
+    $('status').textContent = 'Lost contact with the tracker';
+    toast('Can’t reach the tracker. It may have stopped.');
+    return;
+  }
+  if (s.running) {
+    $('status').textContent = s.total
+      ? `Checking ${Math.min(s.done + 1, s.total)}/${s.total}: ${s.current}`
+      : 'Checking…';
+    if (s.done !== lastDone) {      // new artists were checked: show anything they turned up right away
+      lastDone = s.done;
+      loadFeed();
+    }
+    setTimeout(poll, 1500);
+    return;
+  }
+  lastDone = -1;
+  $('refreshBtn').disabled = false;
+  const errs = s.errors.length;
+  $('status').textContent = errs
+    ? `Finished with ${errs} problem${errs === 1 ? '' : 's'} (hover for details)`
+    : (s.finished_at ? 'Up to date' : '');
+  $('status').title = s.errors.join('\n');
+  loadFeed();
+  loadArtists();
+}
+
+$('refreshBtn').onclick = () => startRefresh(true);
+
+function showStopped() {
+  document.body.innerHTML = '<div class="wrap"><h1>Tracker stopped</h1><p class="note">You can close this tab.</p></div>';
+}
+
+/* ---------- open/closed signal: lets the server quit when the last tab closes ---------- */
+const pageId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Math.random()).slice(2) + Date.now();
+
+function announce(kind) {
+  return fetch('/api/' + kind, {
+    method: 'POST', keepalive: true,   // keepalive lets the request finish while the page is closing
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id: pageId }),
+  });
+}
+announce('hello').catch(() => {});
+window.addEventListener('pagehide', () => { announce('bye').catch(() => {}); });
+window.addEventListener('pageshow', e => {
+  // Coming back from the browser's back/forward cache: check the server is still there.
+  if (e.persisted) announce('hello').catch(showStopped);
+});
+
+/* ---------- failures nobody handled ----------
+   A request that fails inside a click handler with no try/catch (hide, remove, mute, ...) would otherwise do
+   nothing visible. Handlers that deal with their own errors (favorite, Listen later, search) never get here. */
+let lastErrorToast = 0;
+window.addEventListener('unhandledrejection', e => {
+  if (Date.now() - lastErrorToast < 3000) return;   // one message at a time, not one per failed request
+  lastErrorToast = Date.now();
+  const err = e.reason;
+  toast(err instanceof TypeError     // fetch() itself failing means the server isn't answering
+    ? 'Can’t reach the tracker. It may have stopped.'
+    : `Something went wrong: ${(err && err.message) || err}`);
+});
+
+/* ---------- init ---------- */
+loadFeed();
+loadArtists();
+loadMuted();
+startRefresh(false);   // refresh stale artists every time the page opens
+</script>
+</body>
+</html>
