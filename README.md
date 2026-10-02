@@ -29,8 +29,8 @@ Just a small local Python server plus one HTML browser page; nothing to install 
 3. A local server starts at `http://127.0.0.1:8765/` and a browser tab opens automatically.
 4. The server runs as long as the tab stays open and shuts itself down a few seconds after you close the last open tab.
 
-- To pin a shortcut with a custom icon: right-click run.pyw → Create shortcut → drag it to your Start Menu or taskbar → right-click the shortcut → Properties → Change Icon → select icon.ico.
 - `releases.db` (your data) and `backups/`, `image_cache/`, `tracker.log` are created automatically next to the script the first time you run it.
+- To pin a shortcut with a custom icon: right-click run.pyw → Create shortcut → drag it to your Start Menu or taskbar → right-click the shortcut → Properties → Change Icon → select icon.ico.
 
 ## Files
 
@@ -55,7 +55,15 @@ Just a small local Python server plus one HTML browser page; nothing to install 
 ## Limitations
 
 - Apple's iTunes Search API caps a catalog lookup at 200 entries and doesn't support real pagination, so very large catalogs (200+ releases) are periodically re-checked to catch anything that fell outside the lookup window. The app flags an artist's catalog as possibly incomplete when this applies.
+- Mostly tested on Windows with Firefox, should still work on other OSes/browsers.
 
 ## License
+<div>
+  <a href="https://www.paypal.com/donate/?business=AGHTUY36VURVW&no_recurring=0&item_name=I+appreciate+you+visiting+this+page%21+Thank+you%21&currency_code=USD">
+    <img align="right" height="72" alt="paypal-donate-button" src="https://github.com/user-attachments/assets/affd4de6-0740-461f-978d-8db0f116ea1c" />
+  </a>
 
-Release Tracker is licensed under the [MIT](LICENSE) License.
+  Release Tracker is licensed under the <a href="LICENSE">MIT</a> License.
+</div>
+
+**Disclaimer:** PayPal is a registered trademark of PayPal, Inc. The PayPal logo is a trademark of PayPal, Inc.
