@@ -1,0 +1,5 @@
+# Runtime data created automatically the first time you run the app
+releases.db
+backups/
+image_cache/
+tracker.log
