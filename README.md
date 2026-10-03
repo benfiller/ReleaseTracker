@@ -19,7 +19,7 @@
 - Any release can be added to a **Listen later** queue, collected under a separate tab in the feed
 - **Favorite** an artist to have their releases show up first in the feed
 - **Mute** an artist to hide any releases they are credited on across the entire feed
-- **Playlist export:** build a CSV or plain-text song list from a feed tab, ready to import into [Soundiiz](https://soundiiz.com) and sync to Apple Music
+- **Playlist export:** build a CSV song list from a feed tab, ready to import into [Soundiiz](https://soundiiz.com) and sync to Apple Music
 - Artist photos and artwork are cached to disk so thumbnails load instantly even after the browser cache clears
 - Daily local backups of the database, dark/light theme, responsive layout
 
@@ -78,7 +78,7 @@ A local server starts at `http://127.0.0.1:8765/` and a browser tab opens automa
 ## License/Disclaimer
 <div>
   <a href="https://www.paypal.com/donate/?business=AGHTUY36VURVW&no_recurring=0&item_name=I+appreciate+you+visiting+this+page%21+Thank+you%21&currency_code=USD">
-    <img align="right" height="66" alt="paypal-donate-button" src="https://github.com/user-attachments/assets/affd4de6-0740-461f-978d-8db0f116ea1c" />
+    <img align="right" height="67" alt="paypal-donate-button" src="https://github.com/user-attachments/assets/affd4de6-0740-461f-978d-8db0f116ea1c" />
   </a>
 
   Release Tracker is licensed under the <a href="LICENSE">MIT</a> License.
