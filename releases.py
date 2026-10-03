@@ -64,6 +64,7 @@ EXPORT_BATCH = 8                    # albums looked up per request when building
 EXPORT_MAX_RELEASES = 400           # most releases one export request may name
 ISRC_KEEP_FOR = timedelta(days=90)     # cached ISRC matches older than this are looked up again
 TRACKS_KEEP_FOR = timedelta(days=30)   # stored songs of exported albums older than this are deleted
+LISTEN_LATER_HIDDEN_KEEP_FOR = timedelta(days=1)   # hidden Listen later entries are deleted after this long
 FEED_DEFAULT_DAYS = 183             # feed hides releases older than this (0 = no limit)
 TS_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
 # Identifies this exact version of the code, so a relaunch can tell whether the
@@ -144,7 +145,8 @@ CREATE TABLE IF NOT EXISTS listen_later (
     track_count  INTEGER,
     credit       TEXT,
     added_at     TEXT NOT NULL,
-    hidden       INTEGER NOT NULL DEFAULT 0     -- 1 = hidden from the feed (listened to)
+    hidden       INTEGER NOT NULL DEFAULT 0,    -- 1 = hidden from the feed (listened to)
+    hidden_at    TEXT                           -- when it was hidden (NULL while not hidden); see sweep_old_listen_later
 );
 
 CREATE TABLE IF NOT EXISTS tracks_fetched (
@@ -608,6 +610,22 @@ def sweep_orphaned_images(conn):
             pass
     if removed:
         log(f"image cache: removed {removed} orphaned file(s)")
+    return removed
+
+
+def sweep_old_listen_later(conn):
+    """
+    Delete Listen later entries that were hidden (listened to) more than LISTEN_LATER_HIDDEN_KEEP_FOR ago.
+    The Undo toast covers an accidental hide, and a deleted entry can be queued again from the catalog.
+    Runs after every refresh, before the image sweep, so the artwork of a deleted entry is cleaned up in
+    the same pass. Only listen_later rows go: the matching `releases` row keeps its ignored flag.
+    """
+    cutoff = (datetime.now(timezone.utc) - LISTEN_LATER_HIDDEN_KEEP_FOR).strftime(TS_FORMAT)
+    with conn:
+        removed = conn.execute("DELETE FROM listen_later WHERE hidden = 1 AND hidden_at < ?", (cutoff,)).rowcount
+    if removed:
+        log(f"listen later: removed {removed} entr{'y' if removed == 1 else 'ies'} hidden for more than "
+            f"{LISTEN_LATER_HIDDEN_KEEP_FOR.days} day(s)")
     return removed
 
 
@@ -1816,6 +1834,10 @@ def _sweep_after_refresh():
     try:
         with db() as conn:
             try:
+                sweep_old_listen_later(conn)    # first, so the image sweep below can drop their artwork too
+            except sqlite3.Error as e:
+                log(f"listen later sweep failed: {e}")
+            try:
                 sweep_orphaned_images(conn)
             except OSError as e:   # never let a cache-cleanup problem hide how the refresh itself went
                 log(f"image cache sweep failed: {e}")
@@ -2121,7 +2143,8 @@ def api_ignore(req, m, query):
     ignored = 0 if req._body().get("undo") else 1      # {"undo": true} un-hides it
     with db() as conn:
         conn.execute("UPDATE releases SET ignored = ? WHERE id = ?", (ignored, int(m.group(1))))
-        conn.execute("UPDATE listen_later SET hidden = ? WHERE id = ?", (ignored, int(m.group(1))))
+        conn.execute("UPDATE listen_later SET hidden = ?, hidden_at = ? WHERE id = ?",
+                     (ignored, now_iso() if ignored else None, int(m.group(1))))
     return 200, {"ok": True}
 
 
@@ -2134,7 +2157,9 @@ def api_ignore_many(req, m, query):
     ignored = 0 if body.get("undo") else 1
     with db() as conn:          # one transaction: all of them, or none
         conn.executemany(f"UPDATE releases SET ignored = {ignored} WHERE id = ?", ids)
-        conn.executemany(f"UPDATE listen_later SET hidden = {ignored} WHERE id = ?", ids)
+        stamp = now_iso() if ignored else None
+        conn.executemany("UPDATE listen_later SET hidden = ?, hidden_at = ? WHERE id = ?",
+                         [(ignored, stamp, i) for (i,) in ids])
     return 200, {"ok": True, "count": len(ids)}
 
 
