@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/benfiller/ReleaseTracker">
-    <img height="92" alt="icon" src="https://github.com/user-attachments/assets/6f812287-7dfd-41e8-bc1c-96ef8c81f91f" />
+    <img height="84" alt="icon" src="https://github.com/user-attachments/assets/6f812287-7dfd-41e8-bc1c-96ef8c81f91f" />
   </a>
   <h1 align="center">Release Tracker</h1>
   <h4>Track artists you choose and get notified of their new releases, with links that open straight in the Apple Music app.</h4>
@@ -25,18 +25,29 @@
 
 ## Requirements
 
-- Python 3.9+
-- Any modern browser
+- Python 3.8 or newer: [python.org/downloads](https://www.python.org/downloads/)
 
 ## Running it
 
-1. Download or clone this repo.
-2. Double-click `run.pyw` to start the app.
-3. A local server starts at `http://127.0.0.1:8765/` and a browser tab opens automatically.
-4. The server runs as long as the tab stays open and shuts itself down a few seconds after you close the last open tab.
+### Windows
 
-- `releases.db` (your data) and `backups/`, `image_cache/`, `tracker.log` are created automatically next to the script the first time you run it.
-- To pin a shortcut with a custom icon: right-click run.pyw → Create shortcut → drag it to your Start Menu or taskbar → right-click the shortcut → Properties → Change Icon → select icon.ico.
+1. **Code** → Download ZIP or clone this repo.
+2. Extract the contents.
+3. Double-click `run.pyw`.
+
+Optional: To pin a shortcut with a custom icon: right-click run.pyw → Create shortcut → drag it to your preferred location → right-click the shortcut → Properties → Change Icon → select icon.ico.
+
+### Mac
+
+1. **Code** → Download ZIP or clone this repo.
+2. Extract the contents.
+3. Double-click `run.pyw`. If it opens in IDLE or another editor instead, right-click it, choose **Open With**, pick **Python Launcher**, and tick **Always Open With**.
+
+If you see a `CERTIFICATE_VERIFY_FAILED` error, open your Python folder in Applications and double-click **Install Certificates.command** once.
+
+### What happens
+
+A local server starts at `http://127.0.0.1:8765/` and a browser tab opens automatically. The server runs as long as the tab is open and shuts itself down a few seconds after you close it. `releases.db`, `backups/`, `image_cache/`, and `tracker.log` are created on first run and live next to the script in the project folder.
 
 ## Files
 
@@ -61,9 +72,9 @@
 ## Limitations
 
 - Apple's iTunes Search API caps a catalog lookup at 200 entries and doesn't support real pagination, so very large catalogs (200+ releases) are periodically re-checked to catch anything that fell outside the lookup window. The app flags an artist's catalog as possibly incomplete when this applies.
-- Mostly tested on Windows with Firefox, should still work on other OSes/browsers.
+- Primarily tested on Firefox and Windows 11.
 
-## License
+## License/Disclaimer
 <div>
   <a href="https://www.paypal.com/donate/?business=AGHTUY36VURVW&no_recurring=0&item_name=I+appreciate+you+visiting+this+page%21+Thank+you%21&currency_code=USD">
     <img align="right" height="72" alt="paypal-donate-button" src="https://github.com/user-attachments/assets/affd4de6-0740-461f-978d-8db0f116ea1c" />
@@ -72,4 +83,4 @@
   Release Tracker is licensed under the <a href="LICENSE">MIT</a> License.
 </div>
 
-**Disclaimer:** PayPal is a registered trademark of PayPal, Inc. The PayPal logo is a trademark of PayPal, Inc.
+PayPal is a registered trademark of PayPal, Inc. The PayPal logo is a trademark of PayPal, Inc.
