@@ -77,7 +77,7 @@ A local server starts at `http://127.0.0.1:8765/` and a browser tab opens automa
 ## License/Disclaimer
 <div>
   <a href="https://www.paypal.com/donate/?business=AGHTUY36VURVW&no_recurring=0&item_name=I+appreciate+you+visiting+this+page%21+Thank+you%21&currency_code=USD">
-    <img align="right" height="70" alt="paypal-donate-button" src="https://github.com/user-attachments/assets/affd4de6-0740-461f-978d-8db0f116ea1c" />
+    <img align="right" height="68" alt="paypal-donate-button" src="https://github.com/user-attachments/assets/affd4de6-0740-461f-978d-8db0f116ea1c" />
   </a>
 
   Release Tracker is licensed under the <a href="LICENSE">MIT</a> License.
