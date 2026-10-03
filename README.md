@@ -1,8 +1,14 @@
-# Release Tracker
+<div align="center">
+  <a href="https://github.com/benfiller/ReleaseTracker">
+    <img height="92" alt="icon" src="https://github.com/user-attachments/assets/6f812287-7dfd-41e8-bc1c-96ef8c81f91f" />
+  </a>
+  <h1 align="center">Release Tracker</h1>
+  <h4>Track artists you choose and get notified of their new releases, with links that open straight in the Apple Music app.</h4>
+  <h6>Implemented as a small local Python server plus one HTML browser page; nothing to install beyond Python itself.</h6>
+  <h2></h2>
+</div>
 
-A personal Apple Music release tracker desktop app: track artists you choose and get notified of their new releases, with links that open straight in the Apple Music app.
-
-Just a small local Python server plus one HTML browser page; nothing to install beyond Python itself.
+<img width="1866" height="835" alt="feed-view" src="https://github.com/user-attachments/assets/7087776d-5ed0-4946-9971-cc186ddda986" />
 
 ## Features
 
