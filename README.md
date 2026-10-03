@@ -19,7 +19,7 @@
 - Any release can be added to a **Listen later** queue, collected under a separate tab in the feed
 - **Favorite** an artist to have their releases show up first in the feed
 - **Mute** an artist to hide any releases they are credited on across the entire feed
-- **Playlist export:** build a CSV or plain-text song list from a feed tab, ready to import into [Soundiiz](https://soundiiz.com) and sync to Apple Music (Apple's API has no *free* way to create playlists directly)
+- **Playlist export:** build a CSV or plain-text song list from a feed tab, ready to import into [Soundiiz](https://soundiiz.com) and sync to Apple Music
 - Artist photos and artwork are cached to disk so thumbnails load instantly even after the browser cache clears
 - Daily local backups of the database, dark/light theme, responsive layout
 
@@ -49,6 +49,14 @@ If you see a `CERTIFICATE_VERIFY_FAILED` error, open your Python folder in Appli
 
 A local server starts at `http://127.0.0.1:8765/` and a browser tab opens automatically. The server runs as long as the tab is open and shuts itself down a few seconds after you close it. `releases.db`, `backups/`, `image_cache/`, and `tracker.log` are created on first run and live next to the script in the project folder.
 
+## Using the app
+
+- Track an artist by searching their name or entering their Apple Music link under the **Artists** tab.
+- **Feed** shows all new releases from tracked artists, refreshed every time you open the app (if not opened in the last 6 hours). Can be refreshed on demand via "Refresh all".
+- **Features** show new releases with a tracked artist credited as a feature.
+- When you add an artist, their existing catalog is stored in `releases.db` as a baseline so only releases that appear *afterwards* show up as new. Anything not out yet shows under **Upcoming** right away.
+- Click on any artist card to show their Apple Music catalog; any release can be hidden with **Edit Catalog** or added to **Listen later**.
+
 ## Files
 
 | File | Description|
@@ -61,14 +69,6 @@ A local server starts at `http://127.0.0.1:8765/` and a browser tab opens automa
 | `backups/` | Folder containing the 7 most recent daily `releases.db` backups. |
 | `image_cache/` | Folder containing tracked artist photos and release artwork for faster page loading. |
 | `tracker.log` | Debug log, written when launched via `run.pyw`. |
-
-## Using the app
-
-- Track an artist by searching their name or entering their Apple Music link under the **Artists** tab.
-- **Feed** shows all new releases from tracked artists, refreshed every time you open the app (if not opened in the last 6 hours). Can be refreshed on demand via "Refresh all".
-- **Features** show new releases with a tracked artist credited as a feature.
-- When you add an artist, their existing catalog is stored in `releases.db` as a baseline so only releases that appear *afterwards* show up as new. Anything not out yet shows under **Upcoming** right away.
-- Click on any artist card to show their Apple Music catalog; any release can be hidden with **Edit Catalog** or added to **Listen later**.
 
 ## Limitations
 
