@@ -3,3 +3,4 @@ releases.db
 backups/
 image_cache/
 tracker.log
+__pycache__/
