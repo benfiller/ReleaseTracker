@@ -2377,7 +2377,7 @@ def rotate_log_if_large(path, max_bytes=LOG_MAX_BYTES):
 
 def main():
     global _server
-    if sys.stdout is None:  # running under pythonw (no console): log to a file instead
+    if sys.stdout is None or not sys.stdout.isatty():  # no console (pythonw, Python Launcher): log to a file
         log_path = HERE / "tracker.log"
         rotate_log_if_large(log_path)
         sys.stdout = sys.stderr = open(log_path, "a", buffering=1, encoding="utf-8")
