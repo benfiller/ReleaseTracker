@@ -57,16 +57,17 @@ A local server starts at `http://127.0.0.1:8765/` and a browser tab opens automa
 | `index.html` | The whole interface: HTML, CSS, and JS in one file. |
 | `run.pyw` | Double-click launcher. |
 | `icon.ico` | Icon file for optional shortcut. |
-| `backups/` | Folder containing the 7 most recent `releases.db` backups, created automatically on first run. |
-| `image_cache/` | Folder containing tracked artist photos and release artwork, created automatically on first run. |
-| `tracker.log` | Debug logging, created automatically on first run. |
+| `releases.db` | SQLite database of tracked artists, release catalogs, and user state (favorites, muted artists, hidden releases, Listen later queue). |
+| `backups/` | Folder containing the 7 most recent daily `releases.db` backups. |
+| `image_cache/` | Folder containing tracked artist photos and release artwork for faster page loading. |
+| `tracker.log` | Debug log, written when launched via `run.pyw`. |
 
 ## Using the app
 
 - Track an artist by searching their name or entering their Apple Music link under the **Artists** tab.
 - **Feed** shows all new releases from tracked artists, refreshed every time you open the app (if not opened in the last 6 hours). Can be refreshed on demand via "Refresh all".
 - **Features** show new releases with a tracked artist credited as a feature.
-- When you add an artist, their entire existing catalog is stored in `releases.db` as a baseline so only releases that appear *afterwards* show up as new. Anything not out yet shows under **Upcoming** right away.
+- When you add an artist, their existing catalog is stored in `releases.db` as a baseline so only releases that appear *afterwards* show up as new. Anything not out yet shows under **Upcoming** right away.
 - Click on any artist card to show their Apple Music catalog; any release can be hidden with **Edit Catalog** or added to **Listen later**.
 
 ## Limitations
@@ -77,7 +78,7 @@ A local server starts at `http://127.0.0.1:8765/` and a browser tab opens automa
 ## License/Disclaimer
 <div>
   <a href="https://www.paypal.com/donate/?business=AGHTUY36VURVW&no_recurring=0&item_name=I+appreciate+you+visiting+this+page%21+Thank+you%21&currency_code=USD">
-    <img align="right" height="64" alt="paypal-donate-button" src="https://github.com/user-attachments/assets/affd4de6-0740-461f-978d-8db0f116ea1c" />
+    <img align="right" height="66" alt="paypal-donate-button" src="https://github.com/user-attachments/assets/affd4de6-0740-461f-978d-8db0f116ea1c" />
   </a>
 
   Release Tracker is licensed under the <a href="LICENSE">MIT</a> License.
