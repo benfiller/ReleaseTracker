@@ -52,7 +52,10 @@
   nav { position: sticky; top: 0; z-index: 7; display: flex; gap: 7px; margin: 18px 0 5px; border-bottom: 1px solid var(--border); background: var(--bg); }
   nav > button, nav .tabwrap { border: none; border-bottom: 3px solid transparent; border-radius: 0; background: none; padding: 9px 14px; }
   nav > button.active, nav .tabwrap.active { border-bottom-color: var(--accent); font-weight: 600; }
-  .tabwrap { display: inline-flex; align-items: center; gap: 7px; padding-right: 9px; }
+  /* the Feed/Artists tabs are <button>s and pick up the global button:hover border color; the catalog tab is a span, so it needs the same hover underline spelled out */
+  nav .tabwrap:not(.active):hover { border-bottom-color: var(--muted); }
+  /* nav .tabwrap (not just .tabwrap) so this beats the shared nav tab padding above; the right padding is smaller than the left because the x button carries its own side padding */
+  nav .tabwrap { display: inline-flex; align-items: center; gap: 7px; padding-right: 6px; }
   .tabwrap button { border: none; background: none; padding: 0; color: inherit; font: inherit; cursor: pointer; }
   .tabwrap #catalogTabName { max-width: 230px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .tabwrap .x { color: var(--muted); font-size: 20px; line-height: 1; padding: 0 6px 2px; border-radius: 5px; }
