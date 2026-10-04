@@ -35,8 +35,6 @@
 2. Extract the contents.
 3. Double-click `run.pyw`.
 
-Optional: To pin a shortcut with a custom icon: right-click run.pyw → Create shortcut → drag it to your preferred location → right-click the shortcut → Properties → Change Icon → select icon.ico.
-
 ### Mac
 
 1. **Code** → Download ZIP or clone this repo.
@@ -73,7 +71,8 @@ A local server starts at `http://127.0.0.1:8765/` and a browser tab opens automa
 ## Limitations
 
 - Apple's iTunes Search API caps a catalog lookup at 200 entries and doesn't support real pagination, so very large catalogs (200+ releases) are periodically re-checked to catch anything that fell outside the lookup window. The app flags an artist's catalog as possibly incomplete when this applies.
-- Primarily tested on Firefox and Windows 11.
+- Playlist importing is done through [Soundiiz](https://soundiiz.com) as the Apple Music API doesn't have a *free* way to create a playlist directly.
+- Primarily tested on Firefox/Win11.
 
 ## License/Disclaimer
 <div>
