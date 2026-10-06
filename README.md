@@ -50,7 +50,7 @@ A local server starts at `http://127.0.0.1:8765/` and a browser tab opens automa
 ## Using the app
 
 - Track an artist by entering their name or Apple Music link under the **Artists** tab.
-- **Feed** shows all new releases from tracked artists, refreshed every time you open the app (if not opened in the last 6 hours). Can be refreshed on demand via "Refresh all".
+- **Feed** shows all new releases from tracked artists, refreshed every time you open the app (if not opened in the last 6 hours). Can be refreshed on demand via "Refresh all". Favorites show up first in the feed.
 - **Features** show new releases with a tracked artist credited as a feature.
 - When you add an artist, their existing catalog is stored in `releases.db` as a baseline so only releases that appear *afterwards* show up as new. Anything not out yet shows under **Upcoming** right away.
 - Click on any artist card to show their Apple Music catalog; any release can be hidden with **Edit Catalog** or added to **Listen later**.
