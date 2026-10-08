@@ -111,6 +111,7 @@ CREATE TABLE IF NOT EXISTS releases (
     kind         TEXT NOT NULL DEFAULT 'own', -- 'own', or 'feature' (the artist "appears on" it)
     credit       TEXT,                  -- the artist credit Apple shows, e.g. "Artist A & Artist B"
     primary_artist_id INTEGER,          -- the artist Apple files the release under
+    explicitness TEXT,                  -- Apple's collectionExplicitness: 'explicit', 'cleaned', 'notExplicit'
     -- one row per (release, tracked artist): a joint release of two tracked artists is in both
     PRIMARY KEY (id, artist_id)
 );
@@ -351,6 +352,7 @@ def parse_collection(r):
         "track_count": r.get("trackCount"),
         "primary_artist_id": r.get("artistId"),
         "credit": r.get("artistName"),
+        "explicitness": r.get("collectionExplicitness"),
     }
 
 
@@ -696,7 +698,8 @@ REQUIRED_COLUMNS = {
     "artists": {"id", "name", "added_at", "last_checked", "photo", "photo_checked_at", "favorite",
                 "catalog_capped", "catalog_rechecked_at"},
     "releases": {"id", "artist_id", "title", "norm_title", "release_date", "url", "artwork", "track_count",
-                 "first_seen", "is_baseline", "ignored", "removed", "kind", "credit", "primary_artist_id"},
+                 "first_seen", "is_baseline", "ignored", "removed", "kind", "credit", "primary_artist_id",
+                 "explicitness},
 }
 
 
@@ -795,15 +798,31 @@ def distinct_releases(items):
     each stay. Going by first_seen means the copy you already saw wins over one Apple lists later, which
     is what keeps a hidden release from coming back as its own "duplicate".
 
+    Among copies seen at the same time, the explicit one is judged first, so it is the one kept (it is what
+    Apple Music shows by default; the clean copy otherwise tends to win by having an earlier date). When the
+    copy kept is the clean one because it was seen first, it borrows the explicit copy's link, so
+    "Open in Apple Music" still lands on the explicit version while the release keeps its own id (which
+    hiding and Listen later depend on).
+    
     items: dicts with norm_title, track_count, release_date, and optionally first_seen and id
     (a catalog fetched from Apple but not stored yet has neither, and is judged by date alone).
     """
     known = {}
     kept = []
-    for it in sorted(items, key=lambda r: (r.get("first_seen") or "", r["release_date"] is None,
+    for it in sorted(items, key=lambda r: (r.get("first_seen") or "",
+                                           r.get("explicitness") == "cleaned",   # explicit (or unknown) first
+                                           r["release_date"] is None,
                                            r["release_date"] or "", r["track_count"] or 0,
                                            r.get("id") or 0)):
         if is_duplicate(it["norm_title"], it["track_count"], it["release_date"], known):
+            if it.get("explicitness") == "explicit" and it.get("url"):
+                clean = next((k for k in kept if k["norm_title"] == it["norm_title"]
+                              and k.get("explicitness") == "cleaned" and not k.get("_link_borrowed")
+                              and abs((k["track_count"] or 0) - (it["track_count"] or 0)) <= DUPLICATE_TRACK_SLACK),
+                             None)
+                if clean is not None:
+                    clean["url"] = it["url"]
+                    clean["_link_borrowed"] = True   # the first explicit copy judged (fewest tracks) is the one linked
             continue
         kept.append(it)
         remember(it["norm_title"], it["track_count"], it["release_date"], known)
@@ -823,7 +842,7 @@ def save_artist_with_baseline(conn, artist_id, name, releases, photo=None):
         upcoming = bool(r["release_date"]) and r["release_date"][:10] > today
         rows.append((r["id"], artist_id, r["title"], normalize_title(r["title"]), r["release_date"], r["url"],
                      r["artwork"], r["track_count"], ts, 0 if upcoming else 1,
-                     kind, r.get("credit"), r.get("primary_artist_id")))
+                     kind, r.get("credit"), r.get("primary_artist_id"), r.get("explicitness")))
     with conn:
         conn.execute(
             """INSERT INTO artists (id, name, added_at, last_checked, photo, photo_checked_at, catalog_capped)
@@ -834,8 +853,8 @@ def save_artist_with_baseline(conn, artist_id, name, releases, photo=None):
         conn.executemany(
             """INSERT OR IGNORE INTO releases
                (id, artist_id, title, norm_title, release_date, url, artwork,
-                track_count, first_seen, is_baseline, kind, credit, primary_artist_id)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                track_count, first_seen, is_baseline, kind, credit, primary_artist_id, explicitness)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             rows,
         )
 
@@ -853,13 +872,13 @@ def apply_new_releases(conn, artist_id, releases, baseline_through=None):
         row = conn.execute("SELECT name FROM artists WHERE id = ?", (artist_id,)).fetchone()
         artist_name = row[0] if row else ""
         known = {rid: rest for rid, *rest in conn.execute(
-            "SELECT id, release_date, title, url, artwork, track_count FROM releases WHERE artist_id = ?",
+            "SELECT id, release_date, title, url, artwork, track_count, explicitness FROM releases WHERE artist_id = ?",
             (artist_id,))}
         today = ts[:10]
 
         for r in releases:
             if r["id"] in known:
-                old_date, old_title, old_url, old_art, old_tracks = known[r["id"]]
+                old_date, old_title, old_url, old_art, old_tracks, old_expl = known[r["id"]]
                 # Release dates of upcoming releases get moved: keep them current.
                 new_date = r["release_date"]
                 if old_date and new_date and old_date != new_date and max(old_date, new_date)[:10] > today:
@@ -876,6 +895,9 @@ def apply_new_releases(conn, artist_id, releases, baseline_through=None):
                         "UPDATE releases SET title = ?, norm_title = ?, url = ?, artwork = ?, track_count = ? "
                         "WHERE id = ? AND artist_id = ?",
                         (fresh[0], normalize_title(fresh[0]), fresh[1], fresh[2], fresh[3], r["id"], artist_id))
+                if r.get("explicitness") and r["explicitness"] != old_expl:
+                    conn.execute("UPDATE releases SET explicitness = ? WHERE id = ? AND artist_id = ?",
+                                 (r["explicitness"], r["id"], artist_id))
                 continue
             kind = classify_release(artist_id, artist_name, r.get("primary_artist_id"), r.get("credit"))
             baseline = bool(baseline_through and r["release_date"]
@@ -883,13 +905,13 @@ def apply_new_releases(conn, artist_id, releases, baseline_through=None):
             conn.execute(
                 """INSERT OR IGNORE INTO releases
                    (id, artist_id, title, norm_title, release_date, url, artwork,
-                    track_count, first_seen, is_baseline, kind, credit, primary_artist_id)
-                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                    track_count, first_seen, is_baseline, kind, credit, primary_artist_id, explicitness)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
                 (r["id"], artist_id, r["title"], normalize_title(r["title"]), r["release_date"], r["url"],
                  r["artwork"], r["track_count"], ts, int(baseline), kind,
-                 r.get("credit"), r.get("primary_artist_id")),
+                 r.get("credit"), r.get("primary_artist_id"), r.get("explicitness")),
             )
-            known[r["id"]] = (r["release_date"], r["title"], r["url"], r["artwork"], r["track_count"])
+            known[r["id"]] = (r["release_date"], r["title"], r["url"], r["artwork"], r["track_count"], r.get("explicitness"))
         conn.execute("UPDATE artists SET last_checked = ? WHERE id = ?", (ts, artist_id))
 
 
@@ -935,7 +957,7 @@ def mute_options(credit, tracked_norms):
 
 
 _RELEASE_COLS = ("id", "artist_id", "kind", "title", "norm_title", "release_date", "url", "artwork",
-                 "track_count", "first_seen", "credit", "is_baseline", "ignored")
+                 "track_count", "first_seen", "credit", "is_baseline", "ignored", "explicitness")
 
 
 def collapsed_releases(conn, artist_id=None):
