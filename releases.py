@@ -699,7 +699,7 @@ REQUIRED_COLUMNS = {
                 "catalog_capped", "catalog_rechecked_at"},
     "releases": {"id", "artist_id", "title", "norm_title", "release_date", "url", "artwork", "track_count",
                  "first_seen", "is_baseline", "ignored", "removed", "kind", "credit", "primary_artist_id",
-                 "explicitness},
+                 "explicitness"},
 }
 
 
